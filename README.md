@@ -25,12 +25,15 @@ int main() {
     int opcionPrincipal;
 
     do {
-        cout << "\n============================================\n";
-        cout << "=========        CHAT BOT          ==========\n";
-        cout << "=========     CHAT   ==========\n";
-        cout << "============================================\n";
-        cout << "Buenas senor usuario, me llamo chatyipiti:V\n";
-        cout << "vengo a ofrecer mis servicios con el problema que tenga.\n\n";
+        cout << "==============================================\n";
+        cout << "==========         DAIGO IA          =========\n";
+        cout << "==============================================\n";
+        cout << "\n";
+        this_thread::sleep_for(chrono::seconds(2));
+        cout << "Quiubo señor usuario";
+        cout<<  "\n";
+        cout << "Parcero en que le puedo servir\n";
+
         cout << "1. Arreglos Unidimensionales (Vectores)\n";
         cout << "2. Arreglos Bidimensionales (Matrices)\n";
         cout << "3. Creditos e Informacion del Grupo\n";
@@ -54,7 +57,7 @@ int main() {
                 cout << "Jose y algo 1600057\n";
                 break;
             case 4:
-                cout << "\nNos volveremos a ver en algun luga :). Gracias por usar ChatYipiti :V\n";
+                cout << "\nEn la buena, se me cuida :). Gracias por usar DAIGO IA :V\n";
                 break;
             default:
                 cout << "\nOpcion invalida. Intentelo de nuevo.\n";
