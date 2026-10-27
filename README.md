@@ -498,3 +498,5 @@ void subMenu2D_Negocios() {
         }
     } while (ej != 13);
 }
+¿
+si cambia?
