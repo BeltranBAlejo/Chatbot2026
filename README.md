@@ -1,5 +1,8 @@
-
 #include <iostream>
+#include <thread>
+#include <chrono>
+#include <limits>
+#include <windows.h>
 
 using namespace std;
 
@@ -24,7 +27,7 @@ int main() {
     do {
         cout << "\n============================================\n";
         cout << "=========        CHAT BOT          ==========\n";
-        cout << "=========     CHAT YIPITI :V       ==========\n";
+        cout << "=========     CHAT   ==========\n";
         cout << "============================================\n";
         cout << "Buenas senor usuario, me llamo chatyipiti:V\n";
         cout << "vengo a ofrecer mis servicios con el problema que tenga.\n\n";
@@ -112,7 +115,7 @@ void subMenu1D_Texto() {
         cin >> ej;
 
         switch (ej) {
-            case 1:  {   break;}
+            case 1:  /* Aqui programas Ejercicio 9 */ break;
             case 2:  /* Aqui programas Ejercicio 10 */ break;
             case 3:  /* Aqui programas Ejercicio 11 */ break;
             case 4:  /* Aqui programas Ejercicio 22 */ break;
@@ -152,59 +155,9 @@ void subMenu1D_Estadistica() {
             case 3: /* Aqui programas Ejercicio 27 */ break;
             case 4: /* Aqui programas Ejercicio 28 */ break;
             case 5: /* Aqui programas Ejercicio 30 */ break;
-            case 6: {
-                cout<< "\n";
-                int num[10], menor=0, mayor=0, repet1=0, repet2=0 ;
-
-                    for (int i= 0; i< 10; i++ ) {
-                      cout << "Digite un numero para este vector" <<" "<< i << " : " <<"\n";
-                        cin >> num [i];
-                    }
-                    menor= mayor = num [0];
-                    for (int i=1 ; i< 10; i++){
-                      if (num[i]<menor ){
-                        menor = num[i];
-                      }
-                      if (num[i]>mayor ){
-                        mayor = num[i];
-                      }
-                    }
-                    for (int i = 0; i < 10; i++) {
-                      if (num[i] == mayor) {
-                      repet1++;
-                      }
-                      if (num[i] == menor){
-                        repet2++;
-                      }
-                    }
-                    cout << "El numero mayor es : "<<" "<< mayor <<"\n";
-                    cout << "El numero menor es : "<<" "<< menor <<"\n";
-                    cout << "Las veces que se repitio "<<mayor << ": "<<" "<< repet1 <<"\n";
-                    cout << "Las veces que se repitio "<<menor << ": "<<" "<< repet2 <<"\n";
-
-                 break;
-                 }
+            case 6: /* Aqui programas Ejercicio 55 */ break;
             case 7: /* Aqui programas Ejercicio 72 */ break;
-            case 8: {
-                cout<< "\n";
-        int  vec[10], sum3 = 0;
-
-        for (int i= 0; i< 10; i++) {
-
-           cout << "Digite un numero para el vector" <<" "<< i << ":"<<"\n";
-           cin >> vec[i];
-        }
-        for (int i=0; i< 10; i++) {
-          if (vec[i] % 10 ==3 ) {
-              sum3++;
-            }
-          }
-          cout<< "\n";
-          cout << "Cantidad de numeros terminados en tres: "<< sum3 << "\n";
-
-            break;
-            }
-
+            case 8: /* Aqui programas Ejercicio 98 */ break;
             case 9: cout << "Volviendo a la opcion anterior...\n"; break;
             default: cout << "Opcion invalida\n"; break;
         }
@@ -242,17 +195,7 @@ void subMenu1D_Numeros() {
             case 7:  /* Aqui programas Ejercicio 63 */ break;
             case 8:  /* Aqui programas Ejercicio 64 */ break;
             case 9:  /* Aqui programas Ejercicio 76 */ break;
-            case 10:{
-                cout <<"\n";
-
-                int manz[6];
-
-
-
-
-
-
-                break;}
+            case 10: /* Aqui programas Ejercicio 83 */ break;
             case 11: cout << "Volviendo a la opcion anterior...\n"; break;
             default: cout << "Opcion invalida.\n"; break;
         }
@@ -321,7 +264,192 @@ void subMenu1D_Simulacion() {
         cin >> ej;
 
         switch (ej) {
-            case 1:  /* Aqui programas Ejercicio 1 */ break;
+            case 1:  {int capacidadCoches [500];
+    int opcion, posicion, horaLLegada, horaSalida, totalHoras, totalPagar;
+
+    for (int i = 0; i < 500; i++) {
+        capacidadCoches[i] = -1;
+    }
+
+    this_thread::sleep_for(chrono::seconds(4));
+    cout << "Bienvenido al sistema del Parqueadero" << endl;
+
+    do {
+
+
+    cout << "\n";
+    this_thread::sleep_for(chrono::seconds(2));
+    cout<<"Seleccione una opción"<< endl;
+    cout << "\n";
+    this_thread::sleep_for(chrono::seconds(1));
+    cout<<"1) Ingresar coche"<<endl;
+    cout << "\n";
+    cout<<"2) Retirar coche"<<endl;
+    cout << "\n";
+    cout<<"3) Atrás"<<endl;
+    cout << "\n";
+     cin >> opcion;
+
+if (cin.fail()) {
+    cin.clear();
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+}
+    cout << "\n";
+
+
+        switch (opcion)
+    {
+        case 1:
+
+        cout<<"////INGRESO DE VEHICULO////"<<endl;
+        cout<<"\n";
+         this_thread::sleep_for(chrono::seconds(2));
+        cout << "Ingrese la posición del coche: "<<endl;
+        cout << "\n";
+        cout << "del 0 al 499" << endl;
+        cout << "\n";
+        cin >> posicion;
+
+if (cin.fail()) {
+    cin.clear();
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+}
+        cout <<"\n";
+           this_thread::sleep_for(chrono::seconds(1));
+            if (posicion >= 0 && posicion <= 499) {
+                if (capacidadCoches[posicion] == -1) {
+
+                cout << "Ingrese la hora de llegada: "<<endl;
+                cout << "\n";
+                cout << "0 hasta 23 hora"<<endl;
+                cout<<"\n";
+                cin >> horaLLegada;
+                if (cin.fail()) {
+    cin.clear();
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+}
+                cout << "\n";
+               this_thread::sleep_for(chrono::seconds(1));
+                if (horaLLegada >=0 && horaLLegada <= 23){
+
+                capacidadCoches[posicion] = horaLLegada;
+
+                   this_thread::sleep_for(chrono::seconds(3));
+                cout<<"Vehiculo registrado exitosamente"<<endl;
+                cout<<"\n";
+
+
+
+                }else {
+                    this_thread::sleep_for(chrono::seconds(3));
+                cout<<"La hora digitada no esta dentro del limite"<<endl;
+                cout<<"\n";
+                }
+
+
+            } else {
+                this_thread::sleep_for(chrono::seconds(3));
+                cout<<"\n";
+                cout << "La posición esta ocupada" << endl;
+                cout << "\n";
+            }
+        }   else {
+            this_thread::sleep_for(chrono::seconds(3));
+            cout << "la posición es inválida" << endl;
+            cout << "\n";
+        }
+        break;
+
+        case 2:
+             cout<<"////RETIRO DE VEHICULO////"<<endl;
+        cout<<"\n";
+        this_thread::sleep_for(chrono::seconds(2));
+        cout << "Ingrese la posición del coche: "<<endl;
+        cout << "\n";
+        cout << "del 0 al 499" << endl;
+        cout << "\n";
+        cin >> posicion;
+        if (cin.fail()) {
+    cin.clear();
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+}
+        cout <<"\n";
+            if (posicion >= 0 && posicion <= 499) {
+                if (capacidadCoches[posicion] != -1) {
+                this_thread::sleep_for(chrono::seconds(1));
+                cout << "Ingrese la hora de salida: "<<endl;
+                cout << "\n";
+                cout << "0 hasta 23 hora"<<endl;
+                cout<<"\n";
+                cin >> horaSalida;
+                if (cin.fail()) {
+    cin.clear();
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+}
+                cout << "\n";
+
+                if (horaSalida >=0 && horaSalida <= 23){
+
+                horaLLegada=capacidadCoches[posicion];
+                this_thread::sleep_for(chrono::seconds(1));
+                cout<<"Vehiculo retirado exitosamente"<<endl;
+                cout<<"\n";
+
+                    if (horaSalida >= horaLLegada){
+                        totalHoras = horaSalida - horaLLegada;
+                    }else {
+                        totalHoras = (24 - horaLLegada) + horaSalida;
+                    }
+
+                    totalPagar = totalHoras * 3000;
+                    this_thread::sleep_for(chrono::seconds(3));
+                    cout<<"Las horas estacionadas del vehículo son: "<<totalHoras<<endl;
+                    cout<<"\n";
+                    cout<<"Y su monto a pagar es de: "<<totalPagar<<endl;
+
+                    capacidadCoches[posicion] = -1;
+
+
+              }else {
+                this_thread::sleep_for(chrono::seconds(3));
+                cout<<"La hora digitada no esta dentro del limite"<<endl;
+                cout<<"\n";
+                }
+
+
+            } else {
+                this_thread::sleep_for(chrono::seconds(3));
+                cout<<"\n";
+                cout << "La posición no se encuentra ocupada" << endl;
+                cout << "\n";
+            }
+        }   else {
+            this_thread::sleep_for(chrono::seconds(3));
+            cout << "la posición es inválida" << endl;
+            cout << "\n";
+
+
+        }
+        break;
+
+        case 3:
+
+            cout << "Usted esta saliendo del sistema del parqueadero" << endl;
+            cout<<"\n";
+            this_thread::sleep_for(chrono::seconds(2));
+            break;
+
+        default:
+        cout<<"\n";
+        cout << "La opción digitada es inválida" << endl;
+        cout<<"\n";
+        break;
+    }
+     }while(opcion != 3);
+
+     cout<<"Usted ha salido del sistema del parqueadero";
+    cout<<"\n";
+     break;}
             case 2:  /* Aqui programas Ejercicio 3 */ break;
             case 3:  /* Aqui programas Ejercicio 5 */ break;
             case 4:  /* Aqui programas Ejercicio 12/16 */ break;
@@ -498,5 +626,3 @@ void subMenu2D_Negocios() {
         }
     } while (ej != 13);
 }
-¿
-si cambia?
