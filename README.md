@@ -30,9 +30,12 @@ int main() {
         cout << "==============================================\n";
         cout << "\n";
         this_thread::sleep_for(chrono::seconds(2));
-        cout << "Quiubo señor usuario";
+        cout << "Hola bienvenido usuario";
         cout<<  "\n";
-        cout << "Parcero en que le puedo servir\n";
+        cout << "Mi nombre es  DAIGO IA";
+        cout<<  "\n";
+        cout << "¿Que te gustaria hacer el dia de hoy?";
+        cout<<  "\n";
 
         cout << "1. Arreglos Unidimensionales (Vectores)\n";
         cout << "2. Arreglos Bidimensionales (Matrices)\n";
@@ -57,10 +60,10 @@ int main() {
                 cout << "Jose y algo 1600057\n";
                 break;
             case 4:
-                cout << "\nEn la buena, se me cuida :). Gracias por usar DAIGO IA :V\n";
+                cout << "\n¡Nos veremos pronto!. Gracias por usar DAIGO IA!!\n";
                 break;
             default:
-                cout << "\nOpcion invalida. Intentelo de nuevo.\n";
+                cout << "\nOpcion invalida. Vuelve a intentarlo.\n";
                 break;
         }
     } while (opcionPrincipal != 4);
