@@ -30,12 +30,9 @@ int main() {
         cout << "==============================================\n";
         cout << "\n";
         this_thread::sleep_for(chrono::seconds(2));
-        cout << "Hola bienvenido usuario";
+        cout << "Quiubo señor usuario";
         cout<<  "\n";
-        cout << "Mi nombre es  DAIGO IA";
-        cout<<  "\n";
-        cout << "¿Que te gustaria hacer el dia de hoy?";
-        cout<<  "\n";
+        cout << "Parcero en que le puedo servir\n";
 
         cout << "1. Arreglos Unidimensionales (Vectores)\n";
         cout << "2. Arreglos Bidimensionales (Matrices)\n";
@@ -60,10 +57,10 @@ int main() {
                 cout << "Jose y algo 1600057\n";
                 break;
             case 4:
-                cout << "\n¡Nos veremos pronto!. Gracias por usar DAIGO IA!!\n";
+                cout << "\nEn la buena, se me cuida :). Gracias por usar DAIGO IA :V\n";
                 break;
             default:
-                cout << "\nOpcion invalida. Vuelve a intentarlo.\n";
+                cout << "\nOpcion invalida. Intentelo de nuevo.\n";
                 break;
         }
     } while (opcionPrincipal != 4);
@@ -615,7 +612,63 @@ void subMenu2D_Negocios() {
         cin >> ej;
 
         switch (ej) {
-            case 1:  /* Aqui programas Ejercicio 13 */ break;
+            case 1:{  cout <<"\n";
+            const int client = 5, aspect = 4;
+            float A[client][aspect];
+            float prom[4], temProm=0;
+            string nombres[4] = {"Atencion", "Comida", "Precio", "Ambiente"};
+
+    cout << "-Aspectos a evaluar (Calificacion de 1 a 10):\n";
+    cout << "  1. Atencion de parte de los empleados\n";
+    cout << "  2. Calidad de la comida\n";
+    cout << "  3. Justicia del precio\n";
+    cout << "  4. Ambiente (musica, decoracion, comodidad)\n";
+
+
+            for (int c = 0; c < client; c++){
+               for (int a = 0; a < aspect; a++){
+
+                do {
+                cout <<"\n";
+                cout << "Digite cliente ["<< (c + 1) <<"] su puntuacion del 1 al 10. Aspecto a evaluar ["<< (a + 1) <<"]:";
+                    cin >>A[c][a];
+                    if ((A[c][a] < 1) || (A[c][a] > 10)) {
+                cout << "Error: La puntuacion debe estar entre 1 y 10. Intentelo de nuevo.\n";
+            }
+
+        } while (A[c][a] < 1 || A[c][a] > 10);
+                }
+                cout <<"\n";
+                }
+            for (int a = 0; a < aspect; a++) {
+            float sum = 0;
+
+               for (int c = 0; c < client; c++) {
+                  sum += A[c][a];
+                }
+
+        prom[a] = sum / client;
+                   }
+                for (int i = 0; i < aspect - 1; i++) {
+                    for (int j = 0; j < aspect - 1 - i; j++) {
+                            if (prom[j] < prom[j + 1]) {
+                                temProm = prom[j];
+
+                                prom[j] = prom[j + 1];
+                                prom[j + 1] = temProm;
+
+                                string tempNombre = nombres[j];
+                                nombres[j] = nombres[j + 1];
+                                nombres[j + 1] = tempNombre;
+                        }
+                    }
+                }
+            for (int a = 0; a < aspect; a++) {
+            cout << (a + 1) << ". " << nombres[a]<< "."<< " Promedio: " << prom[a] << "\n";
+    }
+
+            break;}
+
             case 2:  /* Aqui programas Ejercicio 14 */ break;
             case 3:  /* Aqui programas Ejercicio 31 */ break;
             case 4:  /* Aqui programas Ejercicio 33 */ break;
