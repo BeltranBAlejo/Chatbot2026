@@ -24,16 +24,18 @@ void subMenu2D_Negocios();
 
 int main() {
     int opcionPrincipal;
-
     do {
         cout << "==============================================\n";
         cout << "==========         DAIGO IA          =========\n";
         cout << "==============================================\n";
         cout << "\n";
         this_thread::sleep_for(chrono::seconds(2));
-        cout << "Quiubo señor usuario";
+        cout << "Hola bienvenido usuario";
         cout<<  "\n";
-        cout << "Parcero en que le puedo servir\n";
+        cout << "Mi nombre es  DAIGO IA";
+        cout<<  "\n";
+        cout << "¿Que te gustaria hacer el dia de hoy?";
+        cout<<  "\n";
 
         cout << "1. Arreglos Unidimensionales (Vectores)\n";
         cout << "2. Arreglos Bidimensionales (Matrices)\n";
@@ -54,14 +56,14 @@ int main() {
                 cout << "Trabajo final Algoritmia y programacion\n";
                 cout << "Tomas Gabriel Alba Rodriguez 160005701\n";
                 cout << "Traidora y algo 1600057\n";
-                cout << "Sebastian y algo 1600057 \n";
+                cout << "Sebastian Herrera Ortega 160005729 \n";
                 cout << "Jose y algo 1600057\n";
                 break;
             case 4:
-                cout << "\nEn la buena, se me cuida :). Gracias por usar DAIGO IA :V\n";
+                cout << "\n¡Nos veremos pronto!. Gracias por usar DAIGO IA!!\n";
                 break;
             default:
-                cout << "\nOpcion invalida. Intentelo de nuevo.\n";
+                cout << "\nOpcion invalida. Vuelve a intentarlo.\n";
                 break;
         }
     } while (opcionPrincipal != 4);
@@ -119,7 +121,21 @@ void subMenu1D_Texto() {
         cin >> ej;
 
         switch (ej) {
-            case 1:  /* Aqui programas Ejercicio 9 */ break;
+            case 1:  {
+    cin.ignore();
+    string palabra;
+    cout << "Programa que encripta una cadena de caracteres para sumarle dos al codigo ASCII y los imprime" << endl;
+    cout << "Ingrese una cadena de caracteres: " << endl;
+    getline(cin, palabra);
+    string fraseEncriptada=palabra;
+    for(int i = 0; i < palabra.length(); i++) {
+        fraseEncriptada[i] = palabra[i] + 2;
+        cout << "caracter " << i + 1 << " encriptado : " << fraseEncriptada[i] << " ";  
+    } 
+    cout << endl << "La frase encriptada es: ";
+for(int i = 0; i < palabra.length(); i++) {
+        cout << fraseEncriptada[i];
+    } break;  }
             case 2:  /* Aqui programas Ejercicio 10 */ break;
             case 3: {   
                 string palabra; 
@@ -130,7 +146,28 @@ void subMenu1D_Texto() {
     for(int i = palabra.length() - 1; i >= 0; i--) {
         cout << palabra[i];
     }  break; }
-            case 4:  /* Aqui programas Ejercicio 22 */ break;
+            case 4:  {
+    cin.ignore();
+    char palabra[100];
+    cout << "Programa para saber cuantas vocales, letras, y consonantes tiene una frase" << endl;
+    cout << "Ingrese una frase: " << endl;
+    cin.getline(palabra, 100);
+    int vocales = 0, consonantes = 0, letras = 0;
+    for(int i = 0; palabra[i] != '\0'; i++) {
+        if((palabra[i] >= 'a' && palabra[i] <= 'z') || (palabra[i] >= 'A' && palabra[i] <= 'Z')) {
+            letras++;
+            if(palabra[i] == 'a' || palabra[i] == 'e' || palabra[i] == 'i' || palabra[i] == 'o' || palabra[i] == 'u' ||
+               palabra[i] == 'A' || palabra[i] == 'E' || palabra[i] == 'I' || palabra[i] == 'O' || palabra[i] == 'U') {
+                vocales++;
+            } else {
+                consonantes++;
+            }
+        }
+    } 
+    cout << "Total de letras: " << letras << endl;
+    cout << "Total de vocales: " << vocales << endl;
+    cout << "Total de consonantes: " << consonantes << endl;
+ break;  }
             case 5:  /* Aqui programas Ejercicio 23 */ break;
             case 6:  /* Aqui programas Ejercicio 29 */ break;
             case 7:  /* Aqui programas Ejercicio 32 */ break;
@@ -576,7 +613,33 @@ aciertos++;
 }
 }
 cout << "El numero de aciertos es: " << aciertos << endl; break; }
-            case 5:  /* Aqui programas Ejercicio 41/42 */ break;
+            case 5:  {
+
+    int posiciones;
+    cout << "Programa que almacena nombres de paises en diferentes posiciones y permite ver el dato guardado en la posicion seleccionada" << endl;
+    cout << "Ingrese el numero de posiciones que desea ingresar: ";
+    cin >> posiciones;
+    string paises[posiciones];
+    for(int i = 0; i < posiciones; i++) {
+        cout << "Ingrese el nombre del pais en la posicion " << i + 1 << ": ";
+        cin >> paises[i];
+    }
+int j;
+do {
+    cout << "Ingrese la posicion del pais que desea ver "<< endl;
+    cin >> j;
+    if(j > 0 && j <= posiciones) {
+        cout << "El pais en la posicion " << j << " es: " << paises[j-1] << endl;
+    } else {
+        cout << "Posicion invalida" << endl;
+    }
+    char opcion;
+    cout << "Desea ver otra posicion? (s/n): ";
+    cin >> opcion;
+    if(opcion == 'n' || opcion == 'N') {
+        break;
+    }
+} while(true); break; }
             case 6:  /* Aqui programas Ejercicio 66 */ break;
             case 7:  /* Aqui programas Ejercicio 69 */ break;
             case 8:  /* Aqui programas Ejercicio 73 */ break;
