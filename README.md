@@ -44,6 +44,12 @@ int main() {
         cout << "Digite alguna opcion: ";
         cin >> opcionPrincipal;
 
+        if (cin.fail()) {
+            cin.clear(); //Limpia error
+            cin.ignore(numeric_limits<streamsize>::max(), '\n'); //Borra el texto repetido
+            opcionPrincipal = 0; //Se le coloca en modo default
+        }
+
         switch (opcionPrincipal) {
             case 1:
                 menuVectores();
@@ -130,18 +136,18 @@ void subMenu1D_Texto() {
     string fraseEncriptada=palabra;
     for(int i = 0; i < palabra.length(); i++) {
         fraseEncriptada[i] = palabra[i] + 2;
-        cout << "caracter " << i + 1 << " encriptado : " << fraseEncriptada[i] << " ";  
-    } 
+        cout << "caracter " << i + 1 << " encriptado : " << fraseEncriptada[i] << " ";
+    }
     cout << endl << "La frase encriptada es: ";
 for(int i = 0; i < palabra.length(); i++) {
         cout << fraseEncriptada[i];
     } break;  }
             case 2:  /* Aqui programas Ejercicio 10 */ break;
-            case 3: {   
-                string palabra; 
+            case 3: {
+                string palabra;
     cout << "Programa para escribir una frase al reves" << endl;
     cout << "Ingrese una frase: "<<endl;
-    getline(cin, palabra); 
+    getline(cin, palabra);
     cout << "La frase al reves es: ";
     for(int i = palabra.length() - 1; i >= 0; i--) {
         cout << palabra[i];
@@ -163,7 +169,7 @@ for(int i = 0; i < palabra.length(); i++) {
                 consonantes++;
             }
         }
-    } 
+    }
     cout << "Total de letras: " << letras << endl;
     cout << "Total de vocales: " << vocales << endl;
     cout << "Total de consonantes: " << consonantes << endl;
@@ -176,7 +182,7 @@ for(int i = 0; i < palabra.length(); i++) {
         cout << "Ingrese la cantidad de nombres para ordenar alfabeticamente: " << endl;
         cin >> N;
         if (cin.fail()) {
-            cin.clear(); 
+            cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
             cout << "Error: Por favor, ingrese un numero entero." << endl;
             N = 0;
@@ -227,7 +233,39 @@ void subMenu1D_Estadistica() {
         cin >> ej;
 
         switch (ej) {
-            case 1: /* Aqui programas Ejercicio 15 */ break;
+            case 1:{
+               cout <<"\n";
+int n, dato;
+int frecuencia [5]= {0,0,0,0,0};
+
+do {
+    cout << "Digite la cantidad de datos a ingresar (entre 1 y 100): ";
+    cin >> n;
+    if (n < 1 || n > 100) {
+        cout << "ERROR: Debe digitar una cantidad entre 1 y 100.\n";
+    }
+} while (n < 1 || n > 100);
+
+
+for (int i = 0; i < n; i++) {
+    do {
+        cout << "Digite el dato " << (i + 1) << " (valor de 1 a 5): ";
+        cin >> dato;
+        if ((dato< 1) || (dato> 5)) {
+            cout << "ERROR: El dato debe ser de 1 a 5.\n";
+        }
+    } while (dato < 1 || dato > 5);
+    frecuencia [dato-1]++;
+ }
+
+for (int i=0; i< 5; i++ ){
+    cout<<"intervalo " <<(i+1) <<":";
+    for (int j=0; j< frecuencia[i]; j++){
+
+        cout<< "*";
+    }cout << "\n";
+}
+                break;}
             case 2: /* Aqui programas Ejercicio 17 */ break;
             case 3:{  int N;
 do {
@@ -235,7 +273,7 @@ cout << "Ingrese el numero de personas (entero positivo): " << endl;
 cin >> N;
 if (N<=0) {
     cout << "Error: Por favor, ingrese un numero positivo." << endl;
-}    
+}
 }
 while (N <= 0);
 double altura[N];
@@ -758,7 +796,7 @@ void subMenu2D_Patrones() {
             case 5: /* Aqui programas Ejercicio 59 */ break;
             case 6: /* Aqui programas Ejercicio 60 */ break;
             case 7: /* Aqui programas Ejercicio 89 */ break;
-            case 8:{ 
+            case 8:{
                 cout << "Programa que genera una matriz identidad de 7x7" << endl;
                 int matriz[7][7];
 for(int i=0;i<7;i++){
