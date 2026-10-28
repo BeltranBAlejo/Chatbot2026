@@ -3,6 +3,7 @@
 #include <chrono>
 #include <limits>
 #include <windows.h>
+#include <string>
 
 using namespace std;
 
@@ -120,12 +121,48 @@ void subMenu1D_Texto() {
         switch (ej) {
             case 1:  /* Aqui programas Ejercicio 9 */ break;
             case 2:  /* Aqui programas Ejercicio 10 */ break;
-            case 3:  /* Aqui programas Ejercicio 11 */ break;
+            case 3: {   
+                string palabra; 
+    cout << "Programa para escribir una frase al reves" << endl;
+    cout << "Ingrese una frase: "<<endl;
+    getline(cin, palabra); 
+    cout << "La frase al reves es: ";
+    for(int i = palabra.length() - 1; i >= 0; i--) {
+        cout << palabra[i];
+    }  break; }
             case 4:  /* Aqui programas Ejercicio 22 */ break;
             case 5:  /* Aqui programas Ejercicio 23 */ break;
             case 6:  /* Aqui programas Ejercicio 29 */ break;
             case 7:  /* Aqui programas Ejercicio 32 */ break;
-            case 8:  /* Aqui programas Ejercicio 52 */ break;
+            case 8: {  int N;
+    do {
+        cout << "Ingrese la cantidad de nombres para ordenar alfabeticamente: " << endl;
+        cin >> N;
+        if (cin.fail()) {
+            cin.clear(); 
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cout << "Error: Por favor, ingrese un numero entero." << endl;
+            N = 0;
+        } else if (N <= 0) {
+            cout << "Error: Por favor, ingrese un numero positivo." << endl;
+        }
+    } while (N <= 0);
+    string nombres[N];
+    for (int i = 0; i < N; i++) {
+        cout << "Ingrese el nombre de la persona " << i + 1 << ": "<< endl;
+        cin >> nombres[i];
+    }
+    for (int i = 0; i < N - 1; i++) {
+        for (int j = 0; j < N - i - 1; j++) {
+            if (nombres[j] > nombres[j + 1]) {
+                swap(nombres[j], nombres[j + 1]);
+            }
+        }
+    }
+    cout << "Nombres ordenados alfabeticamente: " << endl;
+    for (int i = 0; i < N; i++) {
+        cout << nombres[i] << endl;
+    } break; }
             case 9:  /* Aqui programas Ejercicio 53 */ break;
             case 10: /* Aqui programas Ejercicio 62 */ break;
             case 11: /* Aqui programas Ejercicio 67 */ break;
@@ -155,7 +192,35 @@ void subMenu1D_Estadistica() {
         switch (ej) {
             case 1: /* Aqui programas Ejercicio 15 */ break;
             case 2: /* Aqui programas Ejercicio 17 */ break;
-            case 3: /* Aqui programas Ejercicio 27 */ break;
+            case 3:{  int N;
+do {
+cout << "Ingrese el numero de personas (entero positivo): " << endl;
+cin >> N;
+if (N<=0) {
+    cout << "Error: Por favor, ingrese un numero positivo." << endl;
+}    
+}
+while (N <= 0);
+double altura[N];
+double sumaaltura = 0;
+for (int i = 0; i < N; i++) {
+    cout << "Ingrese la altura de la persona " << i + 1 << ": "<< endl;
+    cin >> altura[i];
+    sumaaltura += altura[i];
+}
+double promedio = sumaaltura / N;
+int Amedia=0;
+int Imedia=0;
+for (int i = 0; i < N; i++) {
+    if (altura[i] > promedio) {
+        Amedia++;
+    } else if (altura[i] < promedio) {
+        Imedia++;
+    }
+}
+cout << "Altura promedio: " << promedio << endl;
+cout << "Personas por encima de la altura promedio: " << Amedia << endl;
+cout << "Personas por debajo de la altura promedio: " << Imedia << endl; break; }
             case 4: /* Aqui programas Ejercicio 28 */ break;
             case 5: /* Aqui programas Ejercicio 30 */ break;
             case 6: /* Aqui programas Ejercicio 55 */ break;
@@ -189,7 +254,26 @@ void subMenu1D_Numeros() {
         cin >> ej;
 
         switch (ej) {
-            case 1:  /* Aqui programas Ejercicio 2 */ break;
+            case 1: { unsigned int num;
+cout<<"Ingrese un numero entero positivo"<<endl;
+cin>>num;
+
+unsigned int temp=num;
+int cantidad=0;
+do{
+   cantidad++;
+   temp=temp/10;
+} while(temp>0);
+int arr[cantidad];
+temp=num;
+for(int i = cantidad-1; i>=0; i--){
+    arr[i]=temp%10;
+    temp=temp/10;
+}
+cout<<"Digitos guardados en el arreglo: "<<endl;
+for (int i = 0; i < cantidad; i++){
+    cout<<arr[i]<<" ";
+} break; }
             case 2:  /* Aqui programas Ejercicio 18 */ break;
             case 3:  /* Aqui programas Ejercicio 21 */ break;
             case 4:  /* Aqui programas Ejercicio 39 */ break;
@@ -197,7 +281,23 @@ void subMenu1D_Numeros() {
             case 6:  /* Aqui programas Ejercicio 61 */ break;
             case 7:  /* Aqui programas Ejercicio 63 */ break;
             case 8:  /* Aqui programas Ejercicio 64 */ break;
-            case 9:  /* Aqui programas Ejercicio 76 */ break;
+            case 9: {   int filas;
+cout<<"Programa para dibujar el triangulo de Pascal"<<endl;
+cout<<"Ingrese el numero de filas: ";
+cin>>filas;
+int matriz[filas];
+for(int i=0;i<filas;i++){
+    matriz[i]=1;
+}
+for(int i=0;i<filas;i++){
+    for(int j=0;j<=i;j++){
+        cout<<matriz[j]<<" ";
+    }
+    cout<<endl;
+    for(int j=i;j>0;j--){
+        matriz[j]=matriz[j]+matriz[j-1];
+    }
+} break; }
             case 10: /* Aqui programas Ejercicio 83 */ break;
             case 11: cout << "Volviendo a la opcion anterior...\n"; break;
             default: cout << "Opcion invalida.\n"; break;
@@ -267,7 +367,8 @@ void subMenu1D_Simulacion() {
         cin >> ej;
 
         switch (ej) {
-            case 1:  {int capacidadCoches [500];
+            case 1:  {
+                int capacidadCoches [500];
     int opcion, posicion, horaLLegada, horaSalida, totalHoras, totalPagar;
 
     for (int i = 0; i < 500; i++) {
@@ -293,7 +394,7 @@ void subMenu1D_Simulacion() {
     cout << "\n";
      cin >> opcion;
 
-if (cin.fail()) {
+ if (cin.fail()) {
     cin.clear();
     cin.ignore(numeric_limits<streamsize>::max(), '\n');
 }
@@ -313,7 +414,7 @@ if (cin.fail()) {
         cout << "\n";
         cin >> posicion;
 
-if (cin.fail()) {
+ if (cin.fail()) {
     cin.clear();
     cin.ignore(numeric_limits<streamsize>::max(), '\n');
 }
@@ -455,7 +556,26 @@ if (cin.fail()) {
      break;}
             case 2:  /* Aqui programas Ejercicio 3 */ break;
             case 3:  /* Aqui programas Ejercicio 5 */ break;
-            case 4:  /* Aqui programas Ejercicio 12/16 */ break;
+            case 4: {  int nP;
+cout << "Ingrese el numero de preguntas del examen: ";
+cin >> nP;
+char calPreguntas[nP];
+for(int i=0; i<nP; i++){
+cout << "Ingrese su respuesta de la pregunta " << i+1 << ": (A/B/C/D/E)" << endl;
+cin >> calPreguntas[i];
+}
+char preguntaCorrecta[nP];
+for(int i=0; i<nP; i++){
+cout << "La respuesta correcta de la pregunta " << i+1 << " es: (A/B/C/D/E)" << endl;
+cin >> preguntaCorrecta[i];
+}
+int aciertos=0;
+for(int i=0; i<nP; i++){
+if(calPreguntas[i]==preguntaCorrecta[i]){
+aciertos++;
+}
+}
+cout << "El numero de aciertos es: " << aciertos << endl; break; }
             case 5:  /* Aqui programas Ejercicio 41/42 */ break;
             case 6:  /* Aqui programas Ejercicio 66 */ break;
             case 7:  /* Aqui programas Ejercicio 69 */ break;
@@ -515,7 +635,31 @@ void subMenu2D_Algebra() {
 
 
         switch (ej) {
-            case 1: /* Aqui programas Ejercicio 6 */ break;
+            case 1: { int M[3][4];
+    cout << "Programa que divide cada valor de la matriz entre el valor de la posicion 2,2 de la matriz" << endl;
+
+    cout << "Matriz original:" << endl;
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 4; j++) {
+            M[i][j] = rand() % 2001 - 1000;
+            cout << M[i][j] << endl;
+        }
+        cout << endl;
+    }
+
+    int divisor = M[2][2];
+    cout << "El divisor (posicion [2][2] o 2,2) es: " << divisor << endl;
+
+    cout << "Matriz resultante:" << endl;
+    cout.setf(ios::fixed);
+    cout.precision(2);
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 4; j++) {
+            double resultado = static_cast<double>(M[i][j]) / divisor;
+            cout << resultado << endl;
+        }
+        cout << endl;
+    }break; }
             case 2: /* Aqui programas Ejercicio 7 */ break;
             case 3: /* Aqui programas Ejercicio 8 */ break;
             case 4: /* Aqui programas Ejercicio 24 */ break;
@@ -551,7 +695,25 @@ void subMenu2D_Patrones() {
             case 5: /* Aqui programas Ejercicio 59 */ break;
             case 6: /* Aqui programas Ejercicio 60 */ break;
             case 7: /* Aqui programas Ejercicio 89 */ break;
-            case 8: /* Aqui programas Ejercicio 90 */ break;
+            case 8:{ 
+                cout << "Programa que genera una matriz identidad de 7x7" << endl;
+                int matriz[7][7];
+for(int i=0;i<7;i++){
+    for(int j=0;j<7;j++){
+        if(i==j){
+            matriz[i][j]=1;
+        } else {
+            matriz[i][j]=0;
+        }
+    }
+}
+for(int i=0;i<7;i++){
+    for(int j=0;j<7;j++){
+        cout<<matriz[i][j]<<" ";
+    }
+    cout<<endl;
+}
+break; }
             case 9: cout << "Volviendo a la opcion anterior...\n"; break;
             default: cout << "Opcion invalida.\n"; break;
         }
@@ -583,7 +745,36 @@ void subMenu2D_Recorridos() {
             case 5: /* Aqui programas Ejercicio 92 */ break;
             case 6: /* Aqui programas Ejercicio 96 */ break;
             case 7: /* Aqui programas Ejercicio 97 */ break;
-            case 8: /* Aqui programas Ejercicio 99 */ break;
+            case 8:{
+                 int matriz[4][4];
+    int mayor = 0;
+    int columnaMayor = 0;
+
+    cout << "Programa que imprime el numero de la columna en donde se digite el numero mas grande de una matriz 4x4" << endl;
+
+    for (int i = 0; i < 4; i++) {
+        for (int j = 0; j < 4; j++) {
+            cout << "Digite el numero de la posicion de la matriz [" << i + 1 << "][" << j + 1 << "]: "<<endl;
+            cin >> matriz[i][j];
+
+            if (matriz[i][j] > mayor) {
+                mayor = matriz[i][j];
+                columnaMayor = j + 1;
+            }
+        }
+    }
+cout << "Matriz ingresada:" << endl;
+    for (int i = 0; i < 4; i++) {
+        for (int j = 0; j < 4; j++) {
+            cout << matriz[i][j] <<endl;
+        }
+        cout << endl;
+    }
+
+    cout << "El numero mayor es: " << mayor << endl;
+    cout << "La columna donde se encuentra el numero mas grande es: " << columnaMayor << endl;
+
+                break; }
             case 9: cout << "Volviendo a la opcion anterior...\n"; break;
             default: cout << "Opcion invalida.\n"; break;
         }
