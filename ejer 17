@@ -266,7 +266,58 @@ for (int i=0; i< 5; i++ ){
     }cout << "\n";
 }
                 break;}
-            case 2: /* Aqui programas Ejercicio 17 */ break;
+            case 2: {
+                cout << "\n";
+int n;
+double normi;
+do {
+        cout << "Digite la cantidad de numeros a ingresar: ";
+        cin >> n;
+        if (cin.fail() || n <= 0) {
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cout << "ERROR: Debe ingresar un numero entero positivo.\n";
+            n = 0;
+        }
+    } while (n <= 0);
+
+double numeros[n];
+
+for (int i = 0; i < n; i++) {
+    cout << "Digite el numero " << (i + 1) << ": ";
+    cin >> numeros[i];
+    while (cin.fail()) {
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cout << "ERROR: Ingrese un numero valido: ";
+            cin >> numeros[i];
+        }
+}
+double mayor=0;
+
+mayor = numeros[0];
+
+for (int i=1 ; i<n ; i++ ){
+
+    if (numeros[i]> mayor){
+        mayor= numeros[i];
+
+    }
+}
+
+cout<< "\n";
+if (mayor == 0) {
+        cout << "\nEl numero mayor es 0. No se puede normalizar dividiendo por cero.\n";
+    }
+
+else {
+    for (int i = 0; i < n; i++) {
+    normi = numeros[i] / mayor;
+    cout << "Numero " << (i + 1)<< " -original: "<< numeros[i]<< "  Normalizado: "<< normi<< "\n";
+}
+}
+
+break;}
             case 3:{  int N;
 do {
 cout << "Ingrese el numero de personas (entero positivo): " << endl;
