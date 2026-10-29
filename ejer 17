@@ -61,7 +61,7 @@ int main() {
                 cout << "\n===== CREDITOS =====\n";
                 cout << "Trabajo final Algoritmia y programacion\n";
                 cout << "Tomas Gabriel Alba Rodriguez 160005701\n";
-                cout << "Traidora y algo 1600057\n";
+                cout << "Diego Alejandro Beltran Barreto 160005707\n";
                 cout << "Sebastian Herrera Ortega 160005729 \n";
                 cout << "Jose y algo 1600057\n";
                 break;
@@ -494,7 +494,7 @@ void subMenu1D_Simulacion() {
 
         switch (ej) {
             case 1:  {
-                int capacidadCoches [500];
+    int capacidadCoches [500];
     int opcion, posicion, horaLLegada, horaSalida, totalHoras, totalPagar;
 
     for (int i = 0; i < 500; i++) {
@@ -520,76 +520,106 @@ void subMenu1D_Simulacion() {
     cout << "\n";
      cin >> opcion;
 
- if (cin.fail()) {
+if (cin.fail()) {
     cin.clear();
     cin.ignore(numeric_limits<streamsize>::max(), '\n');
 }
     cout << "\n";
 
 
-        switch (opcion)
-    {
-        case 1:
+   switch (opcion)
+{
+    case 1:
 
-        cout<<"////INGRESO DE VEHICULO////"<<endl;
-        cout<<"\n";
-         this_thread::sleep_for(chrono::seconds(2));
-        cout << "Ingrese la posición del coche: "<<endl;
+        cout << "////INGRESO DE VEHICULO////" << endl;
+        cout << "\n";
+
+        this_thread::sleep_for(chrono::seconds(2));
+
+        cout << "Ingrese la posición del coche: " << endl;
         cout << "\n";
         cout << "del 0 al 499" << endl;
         cout << "\n";
+
         cin >> posicion;
 
- if (cin.fail()) {
-    cin.clear();
-    cin.ignore(numeric_limits<streamsize>::max(), '\n');
-}
-        cout <<"\n";
-           this_thread::sleep_for(chrono::seconds(1));
-            if (posicion >= 0 && posicion <= 499) {
-                if (capacidadCoches[posicion] == -1) {
+        while (cin.fail()) {
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
-                cout << "Ingrese la hora de llegada: "<<endl;
+            cout << "\n";
+            cout << "Ingrese la posición del coche: " << endl;
+            cout << "\n";
+            cout << "del 0 al 499" << endl;
+            cout << "\n";
+
+            cin >> posicion;
+        }
+
+        cout << "\n";
+        this_thread::sleep_for(chrono::seconds(1));
+
+        if (posicion >= 0 && posicion <= 499) {
+
+            if (capacidadCoches[posicion] == -1) {
+
+                cout << "Ingrese la hora de llegada: " << endl;
                 cout << "\n";
-                cout << "0 hasta 23 hora"<<endl;
-                cout<<"\n";
+                cout << "0 hasta 23 hora" << endl;
+                cout << "\n";
+
                 cin >> horaLLegada;
-                if (cin.fail()) {
-    cin.clear();
-    cin.ignore(numeric_limits<streamsize>::max(), '\n');
-}
+
+                while (cin.fail()) {
+                    cin.clear();
+                    cin.ignore(numeric_limits<streamsize>::max(), '\n');
                 cout << "\n";
-               this_thread::sleep_for(chrono::seconds(1));
-                if (horaLLegada >=0 && horaLLegada <= 23){
+                cout << "Ingrese la hora de llegada: " << endl;
+                cout << "\n";
+                cout << "0 hasta 23 hora" << endl;
+                cout << "\n";
 
-                capacidadCoches[posicion] = horaLLegada;
-
-                   this_thread::sleep_for(chrono::seconds(3));
-                cout<<"Vehiculo registrado exitosamente"<<endl;
-                cout<<"\n";
-
-
-
-                }else {
-                    this_thread::sleep_for(chrono::seconds(3));
-                cout<<"La hora digitada no esta dentro del limite"<<endl;
-                cout<<"\n";
+                cin >> horaLLegada;
                 }
 
+                cout << "\n";
+                this_thread::sleep_for(chrono::seconds(1));
+
+                if (horaLLegada >= 0 && horaLLegada <= 23) {
+
+                    capacidadCoches[posicion] = horaLLegada;
+
+                    this_thread::sleep_for(chrono::seconds(3));
+
+                    cout << "Vehiculo registrado exitosamente" << endl;
+                    cout << "\n";
+
+                } else {
+
+                    this_thread::sleep_for(chrono::seconds(3));
+
+                    cout << "La hora digitada no esta dentro del limite" << endl;
+                    cout << "\n";
+                }
 
             } else {
+
                 this_thread::sleep_for(chrono::seconds(3));
-                cout<<"\n";
+
+                cout << "\n";
                 cout << "La posición esta ocupada" << endl;
                 cout << "\n";
             }
-        }   else {
+
+        } else {
+
             this_thread::sleep_for(chrono::seconds(3));
+
             cout << "la posición es inválida" << endl;
             cout << "\n";
         }
-        break;
 
+        break;
         case 2:
              cout<<"////RETIRO DE VEHICULO////"<<endl;
         cout<<"\n";
@@ -599,10 +629,21 @@ void subMenu1D_Simulacion() {
         cout << "del 0 al 499" << endl;
         cout << "\n";
         cin >> posicion;
-        if (cin.fail()) {
-    cin.clear();
-    cin.ignore(numeric_limits<streamsize>::max(), '\n');
-}
+
+          while (cin.fail()) {
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+
+            cout << "\n";
+            cout << "Ingrese la posición del coche: " << endl;
+            cout << "\n";
+            cout << "del 0 al 499" << endl;
+            cout << "\n";
+
+            cin >> posicion;
+        }
+
+
         cout <<"\n";
             if (posicion >= 0 && posicion <= 499) {
                 if (capacidadCoches[posicion] != -1) {
@@ -612,10 +653,18 @@ void subMenu1D_Simulacion() {
                 cout << "0 hasta 23 hora"<<endl;
                 cout<<"\n";
                 cin >> horaSalida;
-                if (cin.fail()) {
-    cin.clear();
-    cin.ignore(numeric_limits<streamsize>::max(), '\n');
-}
+
+                while (cin.fail()) {
+                    cin.clear();
+                    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                cout << "\n";
+                cout << "Ingrese la hora de llegada: " << endl;
+                cout << "\n";
+                cout << "0 hasta 23 hora" << endl;
+                cout << "\n";
+
+                cin >> horaLLegada;
+                }
                 cout << "\n";
 
                 if (horaSalida >=0 && horaSalida <= 23){
@@ -679,7 +728,7 @@ void subMenu1D_Simulacion() {
 
      cout<<"Usted ha salido del sistema del parqueadero";
     cout<<"\n";
-     break;}
+    break;}
             case 2:  /* Aqui programas Ejercicio 3 */ break;
             case 3:  /* Aqui programas Ejercicio 5 */ break;
             case 4: {  int nP;
@@ -840,7 +889,68 @@ void subMenu2D_Patrones() {
         cin >> ej;
 
         switch (ej) {
-            case 1: /* Aqui programas Ejercicio 4 */ break;
+            case 1: { cout<<"BIENVENIDO AL CUADRADO MAGICO"<<endl;
+    cout<<"\n";
+
+    int n;
+
+    do {
+
+    cout<<"Digite el tamaño impar del cuadrado mágico"<<endl;
+    cout<<"\n";
+    cin>>n;
+    cout<<"\n";
+    if (cin.fail()) {
+    cin.clear();
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+}
+    } while (n <= 0 || n % 2 == 0);
+
+    int fila = 0;
+     int columna = 0;
+     int cuadrado [n][n], nuevaFila, nuevaColumna;
+
+
+    for (int fila = 0; fila < n; fila++){
+        for (int columna = 0; columna < n; columna++){
+            cuadrado [fila][columna]= 0;
+        }
+    }
+
+    fila = 0;
+    columna = n/2;
+
+    for (int numero = 1; numero <= n * n; numero++){
+        cuadrado [fila][columna] = numero;
+
+        nuevaFila = (fila - 1 + n)% n;
+        nuevaColumna = (columna + 1 ) % n;
+
+        if (cuadrado[nuevaFila][nuevaColumna] != 0){
+
+            fila = (fila + 1 ) % n;
+
+        }else {
+            fila = nuevaFila;
+            columna = nuevaColumna;
+        }
+    }
+
+    cout <<"TU CUADRADDO MAGICO ESTA LISTO"<<"\n";
+    cout<<"\n";
+
+    for (int fila = 0; fila < n; fila ++){
+        for (int columna = 0; columna < n; columna ++){
+
+
+            cout << "|"<<cuadrado[fila][columna]<<"|"<<"\t";
+
+        }
+        cout<<endl;
+        cout<<"\n";
+
+    }
+                break;}
             case 2: /* Aqui programas Ejercicio 56 */ break;
             case 3: /* Aqui programas Ejercicio 57 */ break;
             case 4: /* Aqui programas Ejercicio 58 */ break;
