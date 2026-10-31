@@ -29,12 +29,12 @@ int main() {
         cout << "==========         DAIGO IA          =========\n";
         cout << "==============================================\n";
         cout << "\n";
-        this_thread::sleep_for(chrono::seconds(2));
-        cout << "Hola bienvenido usuario";
+        this_thread::sleep_for(chrono::seconds(1));
+        cout << "Hola bienvenido querido usuario o usuaria :D";
         cout<<  "\n";
-        cout << "Mi nombre es  DAIGO IA";
+        cout << "Mi nombre es  DAIGO IA B)";
         cout<<  "\n";
-        cout << "¿Que te gustaria hacer el dia de hoy?";
+        cout << "Que te gustaria que te colaborara el dia de hoy?";
         cout<<  "\n";
 
         cout << "1. Arreglos Unidimensionales (Vectores)\n";
@@ -94,6 +94,12 @@ void menuVectores() {
         cout << "Digite alguna opcion porfavor: ";
         cin >> opcion1D;
 
+            if (cin.fail()) {
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            opcion1D = 0;
+        }
+
         switch (opcion1D) {
             case 1: subMenu1D_Texto(); break;
             case 2: subMenu1D_Estadistica(); break;
@@ -126,6 +132,11 @@ void subMenu1D_Texto() {
         cout << "Digite opcion: ";
         cin >> ej;
 
+            if (cin.fail()) {
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            ej = 0;
+        }
         switch (ej) {
             case 1:  {
     cin.ignore();
@@ -231,6 +242,12 @@ void subMenu1D_Estadistica() {
         cout << "9. Volver al menu de Vectores\n";
         cout << "Digite opcion: ";
         cin >> ej;
+
+            if (cin.fail()) {
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            ej = 0;
+}
 
         switch (ej) {
             case 1:{
@@ -379,6 +396,12 @@ void subMenu1D_Numeros() {
         cout << "Digite opcion: ";
         cin >> ej;
 
+            if (cin.fail()) {
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            ej = 0;
+}
+
         switch (ej) {
             case 1: { unsigned int num;
 cout<<"Ingrese un numero entero positivo"<<endl;
@@ -452,8 +475,93 @@ void subMenu1D_Busqueda() {
         cout << "Digite opcion: ";
         cin >> ej;
 
+            if (cin.fail()) {
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            ej = 0;
+}
+
         switch (ej) {
-            case 1:  /* Aqui programas Ejercicio 19 */ break;
+            case 1:{ cout << "\n";
+    int valor1, valor2;
+
+    do {
+        cout << "Digite el la cantidad que desee: ";
+        cin >> valor1;
+        if (cin.fail() || valor1 <= 0) {
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            valor1 = 0;
+        }
+    } while (valor1<= 0);
+
+    do {
+        cout<< "Digite el la cantidad que desee: ";
+        cin>> valor2;
+        if (cin.fail() || valor2 <= 0) {
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            valor2 = 0;
+        }
+    } while (valor2 <= 0);
+
+    cout<<"\n";
+int n1[valor1], n2[valor2], n3[valor1 + valor2];
+
+    for (int i = 0; i < valor1; i++) {
+        do {
+            cout << "Digite el valor que quiere dentro de " << i << " : " << "\n";
+            cin >> n1[i];
+            if (cin.fail()) {
+                cin.clear();
+                cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            } else {
+                break;
+            }
+        } while (true);
+    }
+
+    for (int i = 0; i < valor2; i++) {
+        do {
+            cout << "Digite el valor que quiere dentro de " << i << " : " << "\n";
+            cin >>n2[i];
+            if (cin.fail()) {
+                cin.clear();
+                cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            } else {
+                break;}
+        } while (true);
+    }
+
+    for (int i = 0; i < valor1; i++) {
+        n3[i] = n1[i];
+    }
+    for (int i = 0; i< valor2; i++) {
+        n3[valor1 + i]= n2[i];
+    }
+
+int total = 0;
+total = valor1 +valor2;
+
+    for (int i = 0; i< total - 1; i++) {
+        for (int j = 0; j< total - i - 1; j++) {
+            if (n3[j] > n3[j + 1]) {
+                int aux = n3[j];
+                n3[j]= n3[j + 1];
+                n3[j+ 1] = aux;
+        }
+    }
+    }
+
+    cout << "Valores ordenados\n";
+    for (int i = 0; i < total; i++) {
+        cout << n3[i] << " ";
+    }
+
+    cout << "\n";
+
+
+            break;}
             case 2:  /* Aqui programas Ejercicio 20 */ break;
             case 3:  /* Aqui programas Ejercicio 34 */ break;
             case 4:  /* Aqui programas Ejercicio 35 */ break;
@@ -491,6 +599,12 @@ void subMenu1D_Simulacion() {
         cout << "13. Volver al menu de Vectores\n";
         cout << "Digite opcion: ";
         cin >> ej;
+
+            if (cin.fail()) {
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            ej = 0;
+}
 
         switch (ej) {
             case 1:  {
@@ -809,6 +923,11 @@ void menuMatrices() {
         cout << "Digite alguna opcion: ";
         cin >> opcion2D;
 
+            if (cin.fail()) {
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            opcion2D = 0;
+}
         switch (opcion2D) {
             case 1: subMenu2D_Algebra(); break;
             case 2: subMenu2D_Patrones(); break;
@@ -834,7 +953,11 @@ void subMenu2D_Algebra() {
         cout << "Digite opcion: ";
         cin >> ej;
 
-
+            if (cin.fail()) {
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            ej = 0;
+}
         switch (ej) {
             case 1: { int M[3][4];
     cout << "Programa que divide cada valor de la matriz entre el valor de la posicion 2,2 de la matriz" << endl;
@@ -888,6 +1011,11 @@ void subMenu2D_Patrones() {
         cout << "Digite opcion: ";
         cin >> ej;
 
+            if (cin.fail()) {
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            ej = 0;
+}
         switch (ej) {
             case 1: { cout<<"BIENVENIDO AL CUADRADO MAGICO"<<endl;
     cout<<"\n";
@@ -903,16 +1031,17 @@ void subMenu2D_Patrones() {
     if (cin.fail()) {
     cin.clear();
     cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    n = 0;
 }
-    } while (n <= 0 || n % 2 == 0);
+    } while (n <= 0 || n % 2 == 0 || n >= 50);
 
     int fila = 0;
      int columna = 0;
      int cuadrado [n][n], nuevaFila, nuevaColumna;
 
 
-    for (int fila = 0; fila < n; fila++){
-        for (int columna = 0; columna < n; columna++){
+    for (fila = 0; fila < n; fila++){
+        for ( columna = 0; columna < n; columna++){
             cuadrado [fila][columna]= 0;
         }
     }
@@ -939,8 +1068,8 @@ void subMenu2D_Patrones() {
     cout <<"TU CUADRADDO MAGICO ESTA LISTO"<<"\n";
     cout<<"\n";
 
-    for (int fila = 0; fila < n; fila ++){
-        for (int columna = 0; columna < n; columna ++){
+    for (fila = 0; fila < n; fila ++){
+        for (columna = 0; columna < n; columna ++){
 
 
             cout << "|"<<cuadrado[fila][columna]<<"|"<<"\t";
@@ -979,6 +1108,7 @@ break; }
             case 9: cout << "Volviendo a la opcion anterior...\n"; break;
             default: cout << "Opcion invalida.\n"; break;
         }
+
     } while (ej != 9);
 }
 // Subgrupo 2.3: Recorridos
@@ -999,6 +1129,11 @@ void subMenu2D_Recorridos() {
         cout << "Digite opcion: ";
         cin >> ej;
 
+            if (cin.fail()) {
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            ej = 0;
+}
         switch (ej) {
             case 1: /* Aqui programas Ejercicio 25 */ break;
             case 2: /* Aqui programas Ejercicio 26 */ break;
@@ -1040,6 +1175,7 @@ cout << "Matriz ingresada:" << endl;
             case 9: cout << "Volviendo a la opcion anterior...\n"; break;
             default: cout << "Opcion invalida.\n"; break;
         }
+
     } while (ej != 9);
 }
 // Subgrupo 2.4: Negocios
@@ -1063,6 +1199,12 @@ void subMenu2D_Negocios() {
         cout << "13. Volver al menu de Matrices\n";
         cout << "Digite opcion: ";
         cin >> ej;
+
+            if (cin.fail()) {
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            ej = 0;
+}
 
         switch (ej) {
             case 1:{  cout <<"\n";
