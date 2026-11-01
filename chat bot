@@ -23,6 +23,7 @@ void subMenu2D_Recorridos();
 void subMenu2D_Negocios();
 
 int main() {
+    system("color 01");
     int opcionPrincipal;
     do {
         cout << "==============================================\n";
@@ -42,6 +43,7 @@ int main() {
         cout << "3. Creditos e Informacion del Grupo\n";
         cout << "4. Salir\n";
         cout << "Digite alguna opcion: ";
+        cout << "\n";
         cin >> opcionPrincipal;
 
         if (cin.fail()) {
@@ -92,6 +94,7 @@ void menuVectores() {
         cout << "5. Sistemas de Gestion\n";
         cout << "6. Volver al Menu Principal\n";
         cout << "Digite alguna opcion porfavor: ";
+        cout << "\n";
         cin >> opcion1D;
 
             if (cin.fail()) {
@@ -130,6 +133,7 @@ void subMenu1D_Texto() {
         cout << "11. Ejercicio 67 (Arabigos a romanos)\n";
         cout << "12. Volver al menu de Vectores\n";
         cout << "Digite opcion: ";
+        cout << "\n";
         cin >> ej;
 
             if (cin.fail()) {
@@ -148,8 +152,10 @@ void subMenu1D_Texto() {
     for(int i = 0; i < palabra.length(); i++) {
         fraseEncriptada[i] = palabra[i] + 2;
         cout << "caracter " << i + 1 << " encriptado : " << fraseEncriptada[i] << " ";
+        cout << "\n";
     }
     cout << endl << "La frase encriptada es: ";
+    cout << "\n";
 for(int i = 0; i < palabra.length(); i++) {
         cout << fraseEncriptada[i];
     } break;  }
@@ -160,6 +166,7 @@ for(int i = 0; i < palabra.length(); i++) {
     cout << "Ingrese una frase: "<<endl;
     getline(cin, palabra);
     cout << "La frase al reves es: ";
+    cout << "\n";
     for(int i = palabra.length() - 1; i >= 0; i--) {
         cout << palabra[i];
     }  break; }
@@ -241,6 +248,7 @@ void subMenu1D_Estadistica() {
         cout << "8. Ejercicio 98 (Contar numeros terminados en 3)\n";
         cout << "9. Volver al menu de Vectores\n";
         cout << "Digite opcion: ";
+        cout << "\n";
         cin >> ej;
 
             if (cin.fail()) {
@@ -257,6 +265,7 @@ int frecuencia [5]= {0,0,0,0,0};
 
 do {
     cout << "Digite la cantidad de datos a ingresar (entre 1 y 100): ";
+    cout << "\n";
     cin >> n;
     if (n < 1 || n > 100) {
         cout << "ERROR: Debe digitar una cantidad entre 1 y 100.\n";
@@ -267,6 +276,7 @@ do {
 for (int i = 0; i < n; i++) {
     do {
         cout << "Digite el dato " << (i + 1) << " (valor de 1 a 5): ";
+        cout << "\n";
         cin >> dato;
         if ((dato< 1) || (dato> 5)) {
             cout << "ERROR: El dato debe ser de 1 a 5.\n";
@@ -277,6 +287,7 @@ for (int i = 0; i < n; i++) {
 
 for (int i=0; i< 5; i++ ){
     cout<<"intervalo " <<(i+1) <<":";
+    cout << "\n";
     for (int j=0; j< frecuencia[i]; j++){
 
         cout<< "*";
@@ -289,6 +300,7 @@ int n;
 double normi;
 do {
         cout << "Digite la cantidad de numeros a ingresar: ";
+        cout << "\n";
         cin >> n;
         if (cin.fail() || n <= 0) {
             cin.clear();
@@ -302,11 +314,13 @@ double numeros[n];
 
 for (int i = 0; i < n; i++) {
     cout << "Digite el numero " << (i + 1) << ": ";
+    cout << "\n";
     cin >> numeros[i];
     while (cin.fail()) {
             cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
             cout << "ERROR: Ingrese un numero valido: ";
+            cout << "\n";
             cin >> numeros[i];
         }
 }
@@ -394,6 +408,7 @@ void subMenu1D_Numeros() {
         cout << "10. Ejercicio 83 (Filtrar solo numeros pares)\n";
         cout << "11. Volver al menu de Vectores\n";
         cout << "Digite opcion: ";
+        cout << "\n";
         cin >> ej;
 
             if (cin.fail()) {
@@ -437,11 +452,13 @@ cout<<"\n";
                 int n;
     do {
     cout << "Digite de cuanto quiere el arreglo: ";
+    cout << "\n";
     cin >> n;
     if (cin.fail() || n< 2) {
                         cin.clear();
                         cin.ignore(numeric_limits<streamsize>::max(), '\n');
                         cout << "ERROR: Debe ingresar un numero mayor o igual a 2 para la comparacion ";
+                        cout << "\n";
                         n= 0;
                     }
                 } while (n < 2);
@@ -451,12 +468,14 @@ cout<<"\n";
 
 for (int i= 0; i < n; i++) {
         cout << "Digite un numero en el arreglo " << i<< " : ";
+        cout << "\n";
         cin>> arr[i];
 
         while (cin.fail()) {
                         cin.clear();
                         cin.ignore(numeric_limits<streamsize>::max(), '\n');
                         cout<< "ERROR: Digite el numero nuevamente: ";
+                        cout << "\n";
                         cin>> arr[i];
                     }
     }
@@ -507,6 +526,7 @@ cout<<"\n\n";
             case 9: {   int filas;
 cout<<"Programa para dibujar el triangulo de Pascal"<<endl;
 cout<<"Ingrese el numero de filas: ";
+cout << "\n";
 cin>>filas;
 int matriz[filas];
 for(int i=0;i<filas;i++){
@@ -553,6 +573,7 @@ void subMenu1D_Busqueda() {
         cout << "12. Ejercicio 94 (Filtrar numeros deficientes)\n";
         cout << "13. Volver al menu de Vectores\n";
         cout << "Digite opcion: ";
+        cout << "\n";
         cin >> ej;
 
             if (cin.fail()) {
@@ -569,6 +590,7 @@ void subMenu1D_Busqueda() {
 
     do {
         cout << "Digite el la cantidad que desee: ";
+        cout << "\n";
         cin >> valor1;
         if (cin.fail() || valor1 <= 0) {
             cin.clear();
@@ -579,6 +601,7 @@ void subMenu1D_Busqueda() {
 
     do {
         cout<< "Digite el la cantidad que desee: ";
+        cout << "\n";
         cin>> valor2;
         if (cin.fail() || valor2 <= 0) {
             cin.clear();
@@ -653,6 +676,7 @@ total = valor1 +valor2;
 
                 do {
                     cout<< "Digite cuantos elementos en el arreglo quiere: ";
+                    cout << "\n";
                     cin>> n;
 
 
@@ -673,11 +697,13 @@ total = valor1 +valor2;
                 for(int i = 0; i< n; i++ ){
 
                     cout<< "Digite un numero en la posicion "<< i+1 << " : ";
+                    cout << "\n";
                     cin>> arr[i];
                     while (cin.fail()){
                         cin.clear();
                          cin.ignore(numeric_limits<streamsize>::max(), '\n');
                         cout << "ERROR: Digite un numero entero: ";
+                        cout << "\n";
                         cin >> arr[i];
 
                     }
@@ -687,16 +713,19 @@ cout<< "\n";
 
 
                 cout<< "Digite un numero positivo que desea buscar en el arreglo: ";
+                cout << "\n";
                 cin>> x;
                 while (cin.fail()) {
                     cin.clear();
                     cin.ignore(numeric_limits<streamsize>::max(), '\n');
                     cout<< "ERROR: Digite un numero entero: ";
+                    cout << "\n";
                     cin>> x;
                 }
 cout<< "\n";
                 bool encon= false;
                 cout << "El numero "<< x<< " se encuentra en la posicion: ";
+                cout << "\n";
                 for (int i= 0; i< n; i++) {
                     if (arr[i] == x) {
                         cout << (i + 1) << " ";
@@ -755,6 +784,7 @@ void subMenu1D_Simulacion() {
         cout << "12. Ejercicio 88 (Marcas de atletas ordenadas)\n";
         cout << "13. Volver al menu de Vectores\n";
         cout << "Digite opcion: ";
+        cout << "\n";
         cin >> ej;
 
             if (cin.fail()) {
@@ -1014,6 +1044,7 @@ if (cin.fail()) {
 
             case 4: {  int nP;
 cout << "Ingrese el numero de preguntas del examen: ";
+cout << "\n";
 cin >> nP;
 char calPreguntas[nP];
 for(int i=0; i<nP; i++){
@@ -1037,10 +1068,12 @@ cout << "El numero de aciertos es: " << aciertos << endl; break; }
     int posiciones;
     cout << "Programa que almacena nombres de paises en diferentes posiciones y permite ver el dato guardado en la posicion seleccionada" << endl;
     cout << "Ingrese el numero de posiciones que desea ingresar: ";
+    cout << "\n";
     cin >> posiciones;
     string paises[posiciones];
     for(int i = 0; i < posiciones; i++) {
         cout << "Ingrese el nombre del pais en la posicion " << i + 1 << ": ";
+        cout << "\n";
         cin >> paises[i];
     }
 int j;
@@ -1054,6 +1087,7 @@ do {
     }
     char opcion;
     cout << "Desea ver otra posicion? (s/n): ";
+    cout << "\n";
     cin >> opcion;
     if(opcion == 'n' || opcion == 'N') {
         break;
@@ -1093,6 +1127,7 @@ void menuMatrices() {
         cout << "4. Modelos de Negocios y Problemas Reales\n";
         cout << "5. Volver al Menu Principal\n";
         cout << "Digite alguna opcion: ";
+        cout << "\n";
         cin >> opcion2D;
 
             if (cin.fail()) {
@@ -1128,6 +1163,7 @@ void subMenu2D_Algebra() {
         cout << "5. Ejercicio 91 (Transponer matriz 5x9 a 9x5)\n";
         cout << "6. Volver al menu de Matrices\n";
         cout << "Digite opcion: ";
+        cout << "\n";
         cin >> ej;
 
             if (cin.fail()) {
@@ -1178,6 +1214,7 @@ cout<<"Programa que muestra una matriz de 3 filas y 4 columnas ingresada por el 
 for(int j=0;j<4;j++)
     {
     cout<<"por favor digite un  numero ["<<i+1<<"]["<<j+1<<"]: ";
+    cout << "\n";
     cin>>numeros[i][j];
     }
         }
@@ -1300,6 +1337,7 @@ void subMenu2D_Patrones() {
         cout << "8. Ejercicio 90 (Generar matriz Identidad 7x7)\n";
         cout << "9. Volver al menu de Matrices\n";
         cout << "Digite opcion: ";
+        cout << "\n";
         cin >> ej;
 
             if (cin.fail()) {
@@ -1418,6 +1456,7 @@ void subMenu2D_Recorridos() {
         cout << "8. Ejercicio 99 (Columna de la primera aparicion del mayor)\n";
         cout << "9. Volver al menu de Matrices\n";
         cout << "Digite opcion: ";
+        cout << "\n";
         cin >> ej;
 
             if (cin.fail()) {
@@ -1489,6 +1528,7 @@ void subMenu2D_Negocios() {
         cout << "12. Ejercicio 93 (Kilometros N choferes x 6 dias)\n";
         cout << "13. Volver al menu de Matrices\n";
         cout << "Digite opcion: ";
+        cout << "\n";
         cin >> ej;
 
             if (cin.fail()) {
@@ -1517,6 +1557,7 @@ void subMenu2D_Negocios() {
                 do {
                 cout <<"\n";
                 cout << "Digite cliente ["<< (c + 1) <<"] su puntuacion del 1 al 10. Aspecto a evaluar ["<< (a + 1) <<"]:";
+                cout << "\n";
                     cin >>A[c][a];
                     if ((A[c][a] < 1) || (A[c][a] > 10)) {
                 cout << "Error: La puntuacion debe estar entre 1 y 10. Intentelo de nuevo.\n";
