@@ -423,13 +423,87 @@ cout<<"Digitos guardados en el arreglo: "<<endl;
 for (int i = 0; i < cantidad; i++){
     cout<<arr[i]<<" ";
 } break; }
+
+
             case 2:  /* Aqui programas Ejercicio 18 */ break;
-            case 3:  /* Aqui programas Ejercicio 21 */ break;
+
+
+
+
+            case 3:{
+cout<<"\n";
+
+
+                int n;
+    do {
+    cout << "Digite de cuanto quiere el arreglo: ";
+    cin >> n;
+    if (cin.fail() || n< 2) {
+                        cin.clear();
+                        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                        cout << "ERROR: Debe ingresar un numero mayor o igual a 2 para la comparacion ";
+                        n= 0;
+                    }
+                } while (n < 2);
+
+
+    int arr[n];
+
+for (int i= 0; i < n; i++) {
+        cout << "Digite un numero en el arreglo " << i<< " : ";
+        cin>> arr[i];
+
+        while (cin.fail()) {
+                        cin.clear();
+                        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                        cout<< "ERROR: Digite el numero nuevamente: ";
+                        cin>> arr[i];
+                    }
+    }
+
+
+    int menorPar= arr[0];
+    int mayorImpar = arr[1];
+
+
+    for (int i= 0; i < n;i++) {
+        if (i % 2 == 0) {
+
+            if (arr[i]< menorPar) {
+                menorPar= arr[i];}
+        } else{
+
+            if (arr[i]> mayorImpar) {
+                mayorImpar= arr[i];
+            }}
+    }
+
+    cout<< "El menor arreglo en posiciones pares: "<< menorPar << "\n";
+    cout<<"\n";
+    cout<< "El mayor arreglo en posiciones impares: "<< mayorImpar << "\n";
+    cout<<"\n";
+cout<<"\n\n";
+    if (menorPar > mayorImpar) {
+        cout<< "El arreglo ES PARTIDARIO." << "\n";
+    } else {
+        cout<< "El arreglo NO ES PARTIDARIO." << "\n";
+    }
+
+
+                break;}
+
+
+
+
             case 4:  /* Aqui programas Ejercicio 39 */ break;
             case 5:  /* Aqui programas Ejercicio 40 */ break;
             case 6:  /* Aqui programas Ejercicio 61 */ break;
             case 7:  /* Aqui programas Ejercicio 63 */ break;
             case 8:  /* Aqui programas Ejercicio 64 */ break;
+
+
+
+
             case 9: {   int filas;
 cout<<"Programa para dibujar el triangulo de Pascal"<<endl;
 cout<<"Ingrese el numero de filas: ";
@@ -453,6 +527,12 @@ for(int i=0;i<filas;i++){
         }
     } while (ej != 11);
 }
+
+
+
+
+
+
 // Subgrupo 1.4: Busqueda, Filtros y Ordenamiento
 
 void subMenu1D_Busqueda() {
@@ -482,6 +562,8 @@ void subMenu1D_Busqueda() {
 }
 
         switch (ej) {
+
+
             case 1:{ cout << "\n";
     int valor1, valor2;
 
@@ -562,7 +644,82 @@ total = valor1 +valor2;
 
 
             break;}
-            case 2:  /* Aqui programas Ejercicio 20 */ break;
+
+
+
+            case 2:{
+                cout << "\n";
+                int n;
+
+                do {
+                    cout<< "Digite cuantos elementos en el arreglo quiere: ";
+                    cin>> n;
+
+
+                if (cin.fail() || n<= 0 ){
+                   cin.clear();
+                   cin.ignore(numeric_limits<streamsize>::max(), '\n');
+
+                   cout << "ERROR: Debe digitar un numero entero mayor a 0 \n";
+                   n =0;
+
+
+                }
+                }while (n<=0);
+
+                int arr[n];
+
+
+                for(int i = 0; i< n; i++ ){
+
+                    cout<< "Digite un numero en la posicion "<< i+1 << " : ";
+                    cin>> arr[i];
+                    while (cin.fail()){
+                        cin.clear();
+                         cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                        cout << "ERROR: Digite un numero entero: ";
+                        cin >> arr[i];
+
+                    }
+                }
+cout<< "\n";
+                int x;
+
+
+                cout<< "Digite un numero positivo que desea buscar en el arreglo: ";
+                cin>> x;
+                while (cin.fail()) {
+                    cin.clear();
+                    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                    cout<< "ERROR: Digite un numero entero: ";
+                    cin>> x;
+                }
+cout<< "\n";
+                bool encon= false;
+                cout << "El numero "<< x<< " se encuentra en la posicion: ";
+                for (int i= 0; i< n; i++) {
+                    if (arr[i] == x) {
+                        cout << (i + 1) << " ";
+                        encon = true;
+                    }
+                }
+
+                if (encon== false) {
+                    cout << "(No se encontro algun numero en los arreglos";
+                }
+                cout <<"\n";
+
+
+
+
+                break;}
+
+
+
+
+
+
+
             case 3:  /* Aqui programas Ejercicio 34 */ break;
             case 4:  /* Aqui programas Ejercicio 35 */ break;
             case 5:  /* Aqui programas Ejercicio 36 */ break;
@@ -843,8 +1000,18 @@ if (cin.fail()) {
      cout<<"Usted ha salido del sistema del parqueadero";
     cout<<"\n";
     break;}
+
+
             case 2:  /* Aqui programas Ejercicio 3 */ break;
+
+
             case 3:  /* Aqui programas Ejercicio 5 */ break;
+
+
+
+
+
+
             case 4: {  int nP;
 cout << "Ingrese el numero de preguntas del examen: ";
 cin >> nP;
@@ -905,6 +1072,11 @@ do {
     } while (ej != 13);
 }
 
+
+
+
+
+
 // =========================================================
 // CATEGORIA 2: MATRICES (2D)
 // =========================================================
@@ -938,6 +1110,11 @@ void menuMatrices() {
         }
     } while (opcion2D != 5);
 }
+
+
+
+
+
 // Subgrupo 2.1: Algebra
 
 void subMenu2D_Algebra() {
@@ -959,6 +1136,10 @@ void subMenu2D_Algebra() {
             ej = 0;
 }
         switch (ej) {
+
+
+
+
             case 1: { int M[3][4];
     cout << "Programa que divide cada valor de la matriz entre el valor de la posicion 2,2 de la matriz" << endl;
 
@@ -984,8 +1165,118 @@ void subMenu2D_Algebra() {
         }
         cout << endl;
     }break; }
-            case 2: /* Aqui programas Ejercicio 7 */ break;
-            case 3: /* Aqui programas Ejercicio 8 */ break;
+
+
+
+
+            case 2:{cout<<endl;
+                int numeros[3][4];
+cout<<"Programa que muestra una matriz de 3 filas y 4 columnas ingresada por el usuario y la transpone en otra matriz que invierte filas y columnas"<<endl;
+
+    for(int i=0;i<3;i++)
+        {
+for(int j=0;j<4;j++)
+    {
+    cout<<"por favor digite un  numero ["<<i+1<<"]["<<j+1<<"]: ";
+    cin>>numeros[i][j];
+    }
+        }
+           cout<<"Matriz ingresada: "<<endl;
+        for (int i=0; i<3; i++)
+        {
+            for (int j=0; j<4; j++)
+{
+cout<<numeros[i][j]<<" ";
+}
+cout<<endl;
+        }
+         cout<<"Matriz transpuesta: "<<endl;
+        for(int j=0; j<4; j++)
+            {
+        for(int i=0; i<3; i++)
+        {
+
+        cout<<numeros[i][j]<<" ";
+        }
+        cout<<endl;
+        }
+        } break;
+
+
+
+
+             case 3: {cout<<endl;
+                cout<<"Programa que suma dos matrices bidimensionales ingresadas por el usuario"<<endl;
+int filas, column;
+cout<<"Ingrese la cantidad de filas que tendran sus matrices: "<<endl;
+cin>>filas;
+cout<<"Ingrese la cantidad de columnas que tendra sus matrices: "<<endl;
+cin>>column;
+int matriz[filas][column];
+for (int i=0; i<filas; i++)
+{
+    for(int j=0; j<column; j++)
+    {
+    cout<<"Ingrese los numeros de la primera matriz en la posicion: ["<< i+1 <<"] ["<<j+1<<"]"<<endl;
+    cin>>matriz[i][j];
+    }
+}
+cout<<"Primer matriz: "<<endl;
+for (int i=0; i<filas; i++ )
+{
+    for(int j=0; j<column; j++)
+    {
+        cout<<matriz[i][j]<<" ";
+    }
+    cout<<endl;
+}
+cout<<endl;
+int matriz2[filas][column];
+for (int i=0; i<filas; i++)
+{
+    for(int j=0; j<column; j++)
+    {
+    cout<<"Ingrese los numeros de la segunda matriz en la posicion: ["<< i+1 <<"] ["<< j+1<<"]"<<endl;
+    cin>>matriz2[i][j];
+    }
+}
+cout<<"Segunda matriz: "<<endl;
+for (int i=0; i<filas; i++ )
+{
+    for(int j=0; j<column; j++)
+    {
+        cout<<matriz2[i][j]<<" ";
+    }
+    cout<<endl;
+}
+int matrizsuma[filas][column];
+for(int i=0; i<filas; i++)
+{
+    for(int j=0; j<column; j++)
+    {
+        matrizsuma[i][j]=matriz2[i][j]+matriz[i][j];
+    }
+}
+cout<<"Matriz resultante de la suma de las matrices en cada posicion: "<<endl;
+for (int i=0; i<filas; i++ )
+{
+    for(int j=0; j<column; j++)
+    {
+        cout<<matrizsuma[i][j]<<" ";
+    }
+    cout<<endl;
+}
+} break;
+
+
+
+
+
+
+
+
+
+
             case 4: /* Aqui programas Ejercicio 24 */ break;
             case 5: /* Aqui programas Ejercicio 91 */ break;
             case 6: cout << "Volviendo a la opcion anterior...\n"; break;
