@@ -4,6 +4,9 @@
 #include <limits>
 #include <windows.h>
 #include <string>
+#include <cstdlib> //para numeros aleatorios ran sran
+#include <ctime>
+#include <cmath>
 
 using namespace std;
 
@@ -21,307 +24,317 @@ void subMenu2D_Algebra();
 void subMenu2D_Patrones();
 void subMenu2D_Recorridos();
 void subMenu2D_Negocios();
+
 int main() {
     system("color 01");
-int opcionPrincipal;
-do {
-cout << "==============================================\n";
-cout << "==========         DAIGO IA          =========\n";
-cout << "==============================================\n";
-cout << "\n";
-this_thread::sleep_for(chrono::seconds(1));
-cout << "Hola bienvenido querido usuario o usuaria :D";
-cout<<  "\n";
-cout << "Mi nombre es  DAIGO IA B)";
-cout<<  "\n";
-cout << "Que te gustaria que te colaborara el dia de hoy?";
-cout<<  "\n";
-
-cout << "1. Arreglos Unidimensionales (Vectores)\n";
-cout << "2. Arreglos Bidimensionales (Matrices)\n";
-cout << "3. Creditos e Informacion del Grupo\n";
-cout << "4. Salir\n";
-cout << "Digite alguna opcion: ";
+    int opcionPrincipal;
+    do {
+        cout << "==============================================\n";
+        cout << "==========         DAIGO IA          =========\n";
+        cout << "==============================================\n";
         cout << "\n";
-cin >> opcionPrincipal;
-if (cin.fail()) {
-cin.clear(); //Limpia error
-cin.ignore(numeric_limits<streamsize>::max(), '\n'); //Borra el texto repetido
-opcionPrincipal = 0; //Se le coloca en modo default
+        this_thread::sleep_for(chrono::seconds(1));
+        cout << "Hola bienvenido querido usuario o usuaria :D";
+        cout<<  "\n";
+        cout << "Mi nombre es  DAIGO IA B)";
+        cout<<  "\n";
+        cout << "Que te gustaria que te colaborara el dia de hoy?";
+        cout<<  "\n";
 
-}
+        cout << "1. Arreglos Unidimensionales (Vectores)\n";
+        cout << "2. Arreglos Bidimensionales (Matrices)\n";
+        cout << "3. Creditos e Informacion del Grupo\n";
+        cout << "4. Salir\n";
+        cout << "Digite alguna opcion: ";
+        cout << "\n";
+        cin >> opcionPrincipal;
 
-switch (opcionPrincipal) {
-case 1:
-menuVectores();
-break;
-case 2:
-menuMatrices();
-break;
-case 3:
-cout << "\n===== CREDITOS =====\n";
-cout << "Trabajo final Algoritmia y programacion\n";
-cout << "Tomas Gabriel Alba Rodriguez 160005701\n";
-cout << "Diego Alejandro Beltran Barreto 160005707\n";
-cout << "Sebastian Herrera Ortega 160005729 \n";
-cout << "Jose Andres Sanchez Hernandez 1600057\n";
-break;
-case 4:
-cout << "\n¡Nos veremos pronto!. Gracias por usar DAIGO IA!!\n";
-break;
-default:
-cout << "\nOpcion invalida. Vuelve a intentarlo.\n";
-break;
-}
-} while (opcionPrincipal != 4);
+        if (cin.fail()) {
+            cin.clear(); //Limpia error
+            cin.ignore(numeric_limits<streamsize>::max(), '\n'); //Borra el texto repetido
+            opcionPrincipal = 0; //Se le coloca en modo default
+        }
 
-return 0;
+        switch (opcionPrincipal) {
+            case 1:
+                menuVectores();
+                break;
+            case 2:
+                menuMatrices();
+                break;
+            case 3:
+                cout << "\n===== CREDITOS =====\n";
+                cout << "Trabajo final Algoritmia y programacion\n";
+                cout << "Tomas Gabriel Alba Rodriguez 160005701\n";
+                cout << "Diego Alejandro Beltran Barreto 160005707\n";
+                cout << "Sebastian Herrera Ortega 160005729 \n";
+                cout << "Jose y algo 1600057\n";
+                break;
+            case 4:
+                cout << "\n¡Nos veremos pronto!. Gracias por usar DAIGO IA!!\n";
+                break;
+            default:
+                cout << "\nOpcion invalida. Vuelve a intentarlo.\n";
+                break;
+        }
+    } while (opcionPrincipal != 4);
+
+    return 0;
 }
 
 // CATEGORIA 1: VECTORES (1D)
 void menuVectores() {
-int opcion1D = 0;
+    int opcion1D = 0;
 
-do {
-cout << "\n============================================\n";
-cout << "======= CATEGORIA 1: VECTORES (1D) ===========\n";
-cout << "==============================================\n";
-cout << "1. Texto, Letras y Cadenas\n";
-cout << "2. Estadisticas, Promedios y Conteo de Datos\n";
-cout << "3. Operaciones Numericas y Propiedades Matematicas\n";
-cout << "4. Busqueda, Filtros y Ordenamiento\n";
-cout << "5. Sistemas de Gestion\n";
-cout << "6. Volver al Menu Principal\n";
-cout << "Digite alguna opcion porfavor: ";
+    do {
+        cout << "\n============================================\n";
+        cout << "======= CATEGORIA 1: VECTORES (1D) ===========\n";
+        cout << "==============================================\n";
+        cout << "1. Texto, Letras y Cadenas\n";
+        cout << "2. Estadisticas, Promedios y Conteo de Datos\n";
+        cout << "3. Operaciones Numericas y Propiedades Matematicas\n";
+        cout << "4. Busqueda, Filtros y Ordenamiento\n";
+        cout << "5. Sistemas de Gestion\n";
+        cout << "6. Volver al Menu Principal\n";
+        cout << "Digite alguna opcion porfavor: ";
         cout << "\n";
-cin >> opcion1D;
+        cin >> opcion1D;
 
-if (cin.fail()) {
-cin.clear();
-cin.ignore(numeric_limits<streamsize>::max(), '\n');
-opcion1D = 0;
-}
+            if (cin.fail()) {
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            opcion1D = 0;
+        }
 
-switch (opcion1D) {
-case 1: subMenu1D_Texto(); break;
-case 2: subMenu1D_Estadistica(); break;
-case 3: subMenu1D_Numeros(); break;
-case 4: subMenu1D_Busqueda(); break;
-case 5: subMenu1D_Simulacion(); break;
-case 6: cout << "\nVolviendo al Menu Principal...\n"; break;
-default: cout << "\nOpcion invalida.\n"; break;
-}
-} while (opcion1D != 6);
+        switch (opcion1D) {
+            case 1: subMenu1D_Texto(); break;
+            case 2: subMenu1D_Estadistica(); break;
+            case 3: subMenu1D_Numeros(); break;
+            case 4: subMenu1D_Busqueda(); break;
+            case 5: subMenu1D_Simulacion(); break;
+            case 6: cout << "\nVolviendo al Menu Principal...\n"; break;
+            default: cout << "\nOpcion invalida.\n"; break;
+        }
+    } while (opcion1D != 6);
 }
 //Texto
 
 void subMenu1D_Texto() {
-int ej = 0;
-do {
-cout << "\n==== SUBGRUPO 1.1: TEXTO Y CADENAS ====\n";
-cout << "1. Ejercicio 9  (Encriptar frase ASCII +2)\n";
-cout << "2. Ejercicio 10 (Contar vocales)\n";
-cout << "3. Ejercicio 11 (Frase al reves)\n";
-cout << "4. Ejercicio 22 (Contar palabras, vocales y consonantes)\n";
-cout << "5. Ejercicio 23 (Verificador de sufijo)\n";
-cout << "6. Ejercicio 29 (Primera posicion de un caracter)\n";
-cout << "7. Ejercicio 32 (Frecuencia de 1000 letras aleatorias)\n";
-cout << "8. Ejercicio 52 (Ordenar lista de nombres)\n";
-cout << "9. Ejercicio 53 (Convertir palabra a plural)\n";
-cout << "10. Ejercicio 62 (Calculadora de telegramas)\n";
-cout << "11. Ejercicio 67 (Arabigos a romanos)\n";
-cout << "12. Volver al menu de Vectores\n";
-cout << "Digite opcion: ";
+    int ej = 0;
+    do {
+        cout << "\n==== SUBGRUPO 1.1: TEXTO Y CADENAS ====\n";
+        cout << "1. Ejercicio 9  (Encriptar frase ASCII +2)\n";
+        cout << "2. Ejercicio 10 (Contar vocales)\n";
+        cout << "3. Ejercicio 11 (Frase al reves)\n";
+        cout << "4. Ejercicio 22 (Contar palabras, vocales y consonantes)\n";
+        cout << "5. Ejercicio 23 (Verificador de sufijo)\n";
+        cout << "6. Ejercicio 29 (Primera posicion de un caracter)\n";
+        cout << "7. Ejercicio 32 (Frecuencia de 1000 letras aleatorias)\n";
+        cout << "8. Ejercicio 52 (Ordenar lista de nombres)\n";
+        cout << "9. Ejercicio 53 (Convertir palabra a plural)\n";
+        cout << "10. Ejercicio 62 (Calculadora de telegramas)\n";
+        cout << "11. Ejercicio 67 (Arabigos a romanos)\n";
+        cout << "12. Volver al menu de Vectores\n";
+        cout << "Digite opcion: ";
         cout << "\n";
-cin >> ej;
+        cin >> ej;
 
-if (cin.fail()) {
-cin.clear();
-cin.ignore(numeric_limits<streamsize>::max(), '\n');
-ej = 0;
-}
-switch (ej) {
-case 1:  {
-cin.ignore();
-string palabra;
-cout << "Programa que encripta una cadena de caracteres para sumarle dos al codigo ASCII y los imprime" << endl;
-cout << "Ingrese una cadena de caracteres: " << endl;
-getline(cin, palabra);
-string fraseEncriptada=palabra;
-for(int i = 0; i < palabra.length(); i++) {
-fraseEncriptada[i] = palabra[i] + 2;
-cout << "caracter " << i + 1 << " encriptado : " << fraseEncriptada[i] << " ";
+            if (cin.fail()) {
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            ej = 0;
+        }
+        switch (ej) {
+            case 1:  {
+    cin.ignore();
+    string palabra;
+    cout << "Programa que encripta una cadena de caracteres para sumarle dos al codigo ASCII y los imprime" << endl;
+    cout << "Ingrese una cadena de caracteres: " << endl;
+    getline(cin, palabra);
+    string fraseEncriptada=palabra;
+    for(int i = 0; i < palabra.length(); i++) {
+        fraseEncriptada[i] = palabra[i] + 2;
+        cout << "caracter " << i + 1 << " encriptado : " << fraseEncriptada[i] << " ";
         cout << "\n";
-}
-cout << endl << "La frase encriptada es: ";
+    }
+    cout << endl << "La frase encriptada es: ";
     cout << "\n";
 for(int i = 0; i < palabra.length(); i++) {
-cout << fraseEncriptada[i];
-} break;  }
-case 2:  /* Aqui programas Ejercicio 10 */ break;
-case 3: {
-string palabra;
-cout << "Programa para escribir una frase al reves" << endl;
-cout << "Ingrese una frase: "<<endl;
-getline(cin, palabra);
-cout << "La frase al reves es: ";
+        cout << fraseEncriptada[i];
+    } break;  }
+            case 2:  /* Aqui programas Ejercicio 10 */ break;
+            case 3: {
+                string palabra;
+    cout << "Programa para escribir una frase al reves" << endl;
+    cout << "Ingrese una frase: "<<endl;
+    getline(cin, palabra);
+    cout << "La frase al reves es: ";
     cout << "\n";
-for(int i = palabra.length() - 1; i >= 0; i--) {
-cout << palabra[i];
-}  break; }
-case 4:  {
-cin.ignore();
-char palabra[100];
-cout << "Programa para saber cuantas vocales, letras, y consonantes tiene una frase" << endl;
-cout << "Ingrese una frase: " << endl;
-cin.getline(palabra, 100);
-int vocales = 0, consonantes = 0, letras = 0;
-for(int i = 0; palabra[i] != '\0'; i++) {
-if((palabra[i] >= 'a' && palabra[i] <= 'z') || (palabra[i] >= 'A' && palabra[i] <= 'Z')) {
-letras++;
-if(palabra[i] == 'a' || palabra[i] == 'e' || palabra[i] == 'i' || palabra[i] == 'o' || palabra[i] == 'u' ||
-palabra[i] == 'A' || palabra[i] == 'E' || palabra[i] == 'I' || palabra[i] == 'O' || palabra[i] == 'U') {
-vocales++;
-} else {
-consonantes++;
-}
-}
-}
-cout << "Total de letras: " << letras << endl;
-cout << "Total de vocales: " << vocales << endl;
-cout << "Total de consonantes: " << consonantes << endl;
-break;  }
-case 5:  /* Aqui programas Ejercicio 23 */ break;
-case 6:  /* Aqui programas Ejercicio 29 */ break;
-case 7:  /* Aqui programas Ejercicio 32 */ break;
-case 8: {  int N;
-do {
-cout << "Ingrese la cantidad de nombres para ordenar alfabeticamente: " << endl;
-cin >> N;
-if (cin.fail()) {
-cin.clear();
-cin.ignore(numeric_limits<streamsize>::max(), '\n');
-cout << "Error: Por favor, ingrese un numero entero." << endl;
-N = 0;
-} else if (N <= 0) {
-cout << "Error: Por favor, ingrese un numero positivo." << endl;
-}
-} while (N <= 0);
-string nombres[N];
-for (int i = 0; i < N; i++) {
-cout << "Ingrese el nombre de la persona " << i + 1 << ": "<< endl;
-cin >> nombres[i];
-}
-for (int i = 0; i < N - 1; i++) {
-for (int j = 0; j < N - i - 1; j++) {
-if (nombres[j] > nombres[j + 1]) {
-swap(nombres[j], nombres[j + 1]);
-}
-}
-}
-cout << "Nombres ordenados alfabeticamente: " << endl;
-for (int i = 0; i < N; i++) {
-cout << nombres[i] << endl;
-} break; }
-case 9:  /* Aqui programas Ejercicio 53 */ break;
-case 10: /* Aqui programas Ejercicio 62 */ break;
-case 11: /* Aqui programas Ejercicio 67 */ break;
-case 12: cout << "Volviendo a la opcion anterior...\n"; break;
-default: cout << "Opcion invalida.\n"; break;
-}
-} while (ej != 12);
+    for(int i = palabra.length() - 1; i >= 0; i--) {
+        cout << palabra[i];
+    }  break; }
+            case 4:  {
+    cin.ignore();
+    char palabra[100];
+    cout << "Programa para saber cuantas vocales, letras, y consonantes tiene una frase" << endl;
+    cout << "Ingrese una frase: " << endl;
+    cin.getline(palabra, 100);
+    int vocales = 0, consonantes = 0, letras = 0;
+    for(int i = 0; palabra[i] != '\0'; i++) {
+        if((palabra[i] >= 'a' && palabra[i] <= 'z') || (palabra[i] >= 'A' && palabra[i] <= 'Z')) {
+            letras++;
+            if(palabra[i] == 'a' || palabra[i] == 'e' || palabra[i] == 'i' || palabra[i] == 'o' || palabra[i] == 'u' ||
+               palabra[i] == 'A' || palabra[i] == 'E' || palabra[i] == 'I' || palabra[i] == 'O' || palabra[i] == 'U') {
+                vocales++;
+            } else {
+                consonantes++;
+            }
+        }
+    }
+    cout << "Total de letras: " << letras << endl;
+    cout << "Total de vocales: " << vocales << endl;
+    cout << "Total de consonantes: " << consonantes << endl;
+ break;  }
+            case 5:  /* Aqui programas Ejercicio 23 */ break;
+            case 6:  /* Aqui programas Ejercicio 29 */ break;
+            case 7:  /* Aqui programas Ejercicio 32 */ break;
+            case 8: {  int N;
+    do {
+        cout << "Ingrese la cantidad de nombres para ordenar alfabeticamente: " << endl;
+        cin >> N;
+        if (cin.fail()) {
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cout << "Error: Por favor, ingrese un numero entero." << endl;
+            N = 0;
+        } else if (N <= 0) {
+            cout << "Error: Por favor, ingrese un numero positivo." << endl;
+        }
+    } while (N <= 0);
+    string nombres[N];
+    for (int i = 0; i < N; i++) {
+        cout << "Ingrese el nombre de la persona " << i + 1 << ": "<< endl;
+        cin >> nombres[i];
+    }
+    for (int i = 0; i < N - 1; i++) {
+        for (int j = 0; j < N - i - 1; j++) {
+            if (nombres[j] > nombres[j + 1]) {
+                swap(nombres[j], nombres[j + 1]);
+            }
+        }
+    }
+    cout << "Nombres ordenados alfabeticamente: " << endl;
+    for (int i = 0; i < N; i++) {
+        cout << nombres[i] << endl;
+    } break; }
+            case 9:  /* Aqui programas Ejercicio 53 */ break;
+            case 10: /* Aqui programas Ejercicio 62 */ break;
+            case 11: /* Aqui programas Ejercicio 67 */ break;
+            case 12: cout << "Volviendo a la opcion anterior...\n"; break;
+            default: cout << "Opcion invalida.\n"; break;
+        }
+    } while (ej != 12);
 }
 // Subgrupo 1.2: Estadistica
 
 void subMenu1D_Estadistica() {
-int ej = 0;
-do {
-cout << "\n--- SUBGRUPO 1.2: ESTADISTICAS Y PROMEDIOS ---\n";
-cout << "1. Ejercicio 15 (Histograma de notas 1 a 5)\n";
-cout << "2. Ejercicio 17 (Escalar lista reales 0 a 1)\n";
-cout << "3. Ejercicio 27 (Promedio de alturas, sobre/bajo media)\n";
-cout << "4. Ejercicio 28 (Primeros 10 suman mas que ultimos 10)\n";
-cout << "5. Ejercicio 30 (Media, varianza y desviacion estandar)\n";
-cout << "6. Ejercicio 55 (Mayor, menor y sus repeticiones)\n";
-cout << "7. Ejercicio 72 (Encuesta cafeteria con histograma)\n";
-cout << "8. Ejercicio 98 (Contar numeros terminados en 3)\n";
-cout << "9. Volver al menu de Vectores\n";
-cout << "Digite opcion: ";
+    int ej = 0;
+    do {
+        cout << "\n--- SUBGRUPO 1.2: ESTADISTICAS Y PROMEDIOS ---\n";
+        cout << "1. Ejercicio 15 (Histograma de notas 1 a 5)\n";
+        cout << "2. Ejercicio 17 (Escalar lista reales 0 a 1)\n";
+        cout << "3. Ejercicio 27 (Promedio de alturas, sobre/bajo media)\n";
+        cout << "4. Ejercicio 28 (Primeros 10 suman mas que ultimos 10)\n";
+        cout << "5. Ejercicio 30 (Media, varianza y desviacion estandar)\n";
+        cout << "6. Ejercicio 55 (Mayor, menor y sus repeticiones)\n";
+        cout << "7. Ejercicio 72 (Encuesta cafeteria con histograma)\n";
+        cout << "8. Ejercicio 98 (Contar numeros terminados en 3)\n";
+        cout << "9. Volver al menu de Vectores\n";
+        cout << "Digite opcion: ";
         cout << "\n";
-cin >> ej;
+        cin >> ej;
 
-if (cin.fail()) {
-cin.clear();
-cin.ignore(numeric_limits<streamsize>::max(), '\n');
-ej = 0;
+            if (cin.fail()) {
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            ej = 0;
 }
 
-switch (ej) {
-case 1:{
-cout <<"\n";
+        switch (ej) {
+
+
+
+            case 1:{
+               cout <<"\n";
 int n, dato;
 int frecuencia [5]= {0,0,0,0,0};
 
 do {
-cout << "Digite la cantidad de datos a ingresar (entre 1 y 100): ";
+    cout << "Digite la cantidad de datos a ingresar (entre 1 y 100): ";
     cout << "\n";
-cin >> n;
-if (n < 1 || n > 100) {
-cout << "ERROR: Debe digitar una cantidad entre 1 y 100.\n";
-}
+    cin >> n;
+    if (n < 1 || n > 100) {
+        cout << "ERROR: Debe digitar una cantidad entre 1 y 100.\n";
+    }
 } while (n < 1 || n > 100);
 
 
 for (int i = 0; i < n; i++) {
-do {
-cout << "Digite el dato " << (i + 1) << " (valor de 1 a 5): ";
+    do {
+        cout << "Digite el dato " << (i + 1) << " (valor de 1 a 5): ";
         cout << "\n";
-cin >> dato;
-if ((dato< 1) || (dato> 5)) {
-cout << "ERROR: El dato debe ser de 1 a 5.\n";
-}
-} while (dato < 1 || dato > 5);
-frecuencia [dato-1]++;
-}
+        cin >> dato;
+        if ((dato< 1) || (dato> 5)) {
+            cout << "ERROR: El dato debe ser de 1 a 5.\n";
+        }
+    } while (dato < 1 || dato > 5);
+    frecuencia [dato-1]++;
+ }
 
 for (int i=0; i< 5; i++ ){
-cout<<"intervalo " <<(i+1) <<":";
+    cout<<"intervalo " <<(i+1) <<":";
     cout << "\n";
-for (int j=0; j< frecuencia[i]; j++){
+    for (int j=0; j< frecuencia[i]; j++){
 
-cout<< "*";
-}cout << "\n";
+        cout<< "*";
+    }cout << "\n";
 }
-break;}
-case 2: {
-cout << "\n";
+                break;}
+
+
+
+
+
+
+            case 2: {
+                cout << "\n";
 int n;
 double normi;
 do {
-cout << "Digite la cantidad de numeros a ingresar: ";
+        cout << "Digite la cantidad de numeros a ingresar: ";
         cout << "\n";
-cin >> n;
-if (cin.fail() || n <= 0) {
-cin.clear();
-cin.ignore(numeric_limits<streamsize>::max(), '\n');
-cout << "ERROR: Debe ingresar un numero entero positivo.\n";
-n = 0;
-}
-} while (n <= 0);
+        cin >> n;
+        if (cin.fail() || n <= 0) {
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cout << "ERROR: Debe ingresar un numero entero positivo.\n";
+            n = 0;
+        }
+    } while (n <= 0);
 
 double numeros[n];
 
 for (int i = 0; i < n; i++) {
-cout << "Digite el numero " << (i + 1) << ": ";
+    cout << "Digite el numero " << (i + 1) << ": ";
     cout << "\n";
-cin >> numeros[i];
-while (cin.fail()) {
-cin.clear();
-cin.ignore(numeric_limits<streamsize>::max(), '\n');
-cout << "ERROR: Ingrese un numero valido: ";
+    cin >> numeros[i];
+    while (cin.fail()) {
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cout << "ERROR: Ingrese un numero valido: ";
             cout << "\n";
-cin >> numeros[i];
-}
+            cin >> numeros[i];
+        }
 }
 double mayor=0;
 
@@ -329,222 +342,328 @@ mayor = numeros[0];
 
 for (int i=1 ; i<n ; i++ ){
 
-if (numeros[i]> mayor){
-mayor= numeros[i];
+    if (numeros[i]> mayor){
+        mayor= numeros[i];
 
-}
+    }
 }
 
 cout<< "\n";
 if (mayor == 0) {
-cout << "\nEl numero mayor es 0. No se puede normalizar dividiendo por cero.\n";
-}
+        cout << "\nEl numero mayor es 0. No se puede normalizar dividiendo por cero.\n";
+    }
 
 else {
-for (int i = 0; i < n; i++) {
-normi = numeros[i] / mayor;
-cout << "Numero " << (i + 1)<< " -original: "<< numeros[i]<< "  Normalizado: "<< normi<< "\n";
+    for (int i = 0; i < n; i++) {
+    normi = numeros[i] / mayor;
+    cout << "Numero " << (i + 1)<< " -original: "<< numeros[i]<< "  Normalizado: "<< normi<< "\n";
 }
 }
 
 break;}
-case 3:{  int N;
+
+
+
+
+
+            case 3:{  int N;
 do {
 cout << "Ingrese el numero de personas (entero positivo): " << endl;
 cin >> N;
 if (N<=0) {
-cout << "Error: Por favor, ingrese un numero positivo." << endl;
+    cout << "Error: Por favor, ingrese un numero positivo." << endl;
 }
 }
 while (N <= 0);
 double altura[N];
 double sumaaltura = 0;
 for (int i = 0; i < N; i++) {
-cout << "Ingrese la altura de la persona " << i + 1 << ": "<< endl;
-cin >> altura[i];
-sumaaltura += altura[i];
+    cout << "Ingrese la altura de la persona " << i + 1 << ": "<< endl;
+    cin >> altura[i];
+    sumaaltura += altura[i];
 }
 double promedio = sumaaltura / N;
 int Amedia=0;
 int Imedia=0;
 for (int i = 0; i < N; i++) {
-if (altura[i] > promedio) {
-Amedia++;
-} else if (altura[i] < promedio) {
-Imedia++;
-}
+    if (altura[i] > promedio) {
+        Amedia++;
+    } else if (altura[i] < promedio) {
+        Imedia++;
+    }
 }
 cout << "Altura promedio: " << promedio << endl;
 cout << "Personas por encima de la altura promedio: " << Amedia << endl;
 cout << "Personas por debajo de la altura promedio: " << Imedia << endl; break; }
-case 4: /* Aqui programas Ejercicio 28 */ break;
-case 5: /* Aqui programas Ejercicio 30 */ break;
-case 6: /* Aqui programas Ejercicio 55 */ break;
-case 7: /* Aqui programas Ejercicio 72 */ break;
-case 8: /* Aqui programas Ejercicio 98 */ break;
-case 9: cout << "Volviendo a la opcion anterior...\n"; break;
-default: cout << "Opcion invalida\n"; break;
+
+
+
+
+
+
+            case 4: {
+
+    int v[20];
+    int suma1= 0;
+    int suma2= 0;
+    int i;
+
+srand(time(0));
+
+
+    cout<< "Vector generado aleatoriamente: \n";
+    for (i= 0; i< 20; i++) {
+
+        v[i]= rand() % 100;
+        cout << i << " = " << v[i] <<"\n";
+
+        if (i< 10) {
+            suma1 += v[i];
+        }
+        else {
+            suma2 += v[i];
+        }
+    }
+
+cout<<"\n";
+    cout<< "Suma de los primeros 10 vectores: " << suma1 << "\n";
+    cout<< "Suma de los ultimos 10 vectores:  " << suma2 << "\n";
+cout<<"\n";
+
+    if (suma1 > suma2) {
+        cout<< "RESULTADO: La suma de los primeros 10 ES MAYOR \n";
+    } else if (suma1< suma2) {
+        cout<< "RESULTADO: La suma de los primeros 10 NO es mayor\n";
+    } else {
+        cout<< "RESULTADO: Ambas sumas son IGUALES \n";
+    }
+
+    break;
 }
-} while (ej != 9);
+
+
+
+
+            case 5: {cout<<"\n";
+    int n= 0;
+
+    do {
+        cout<< "Digite la cantidad de numeros para ingresar: ";
+        cin>> n;
+
+        if (cin.fail() || n <= 0) {
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cout << "ERROR: Debe ingresar un numero positivo \n";
+            n= 0;
+        }
+    } while (n<= 0);
+
+    cout<<"\n";
+    double x[n];
+    double suma= 0.0, media= 0.0,sumaDiferencias= 0.0 , varianza= 0.0, desviacion= 0.0;
+    int i;
+
+    for (i = 0; i< n; i++) {
+        cout<< "Digite el numero "<<(i + 1) << ": ";
+        cin>> x[i];
+
+        while (cin.fail()) {
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cout<< "ERROR: Ingrese un numero nuevamente: ";
+            cout<< "\n";
+            cin>> x[i];
+        }
+
+        suma += x[i];
+    }
+
+    media= suma / n;
+
+    for (i = 0; i < n; i++) {
+        sumaDiferencias += pow(x[i] - media, 2);
+    }
+    varianza= sumaDiferencias / n;
+
+    desviacion = sqrt(varianza);
+
+    cout<< "\n";
+    cout<< "Media (Promedio general): "<< media << "\n";
+    cout<< "Varianza: " << varianza<< "\n";
+    cout<< "Desviacion estandar: "<< desviacion << "\n";
+
+    break;
+}
+
+
+
+
+            case 6: /* Aqui programas Ejercicio 55 */ break;
+            case 7: /* Aqui programas Ejercicio 72 */ break;
+            case 8: /* Aqui programas Ejercicio 98 */ break;
+            case 9: cout << "Volviendo a la opcion anterior...\n"; break;
+            default: cout << "Opcion invalida\n"; break;
+        }
+    } while (ej != 9);
 }
 
 // ---------------------------------------------------------
 // Subgrupo 1.3: Numeros y Operaciones
 // ---------------------------------------------------------
 void subMenu1D_Numeros() {
-int ej = 0;
-do {
-cout << "\n--- SUBGRUPO 1.3: OPERACIONES NUMERICAS ---\n";
-cout << "1. Ejercicio 2  (Separar digitos de un numero en vector)\n";
-cout << "2. Ejercicio 18 (Suma de dos numeros binarios)\n";
-cout << "3. Ejercicio 21 (Evaluar si vector es Partidario)\n";
-cout << "4. Ejercicio 39 (Serie del cuadrado de la diferencia)\n";
-cout << "5. Ejercicio 40 (Bits a decimal)\n";
-cout << "6. Ejercicio 61 (Decimal a binario)\n";
-cout << "7. Ejercicio 63 (Decimal a octal)\n";
-cout << "8. Ejercicio 64 (Formatear numero con puntos de miles)\n";
-cout << "9. Ejercicio 76 (Triangulo de Pascal en vector 1D)\n";
-cout << "10. Ejercicio 83 (Filtrar solo numeros pares)\n";
-cout << "11. Volver al menu de Vectores\n";
-cout << "Digite opcion: ";
+    int ej = 0;
+    do {
+        cout << "\n--- SUBGRUPO 1.3: OPERACIONES NUMERICAS ---\n";
+        cout << "1. Ejercicio 2  (Separar digitos de un numero en vector)\n";
+        cout << "2. Ejercicio 18 (Suma de dos numeros binarios)\n";
+        cout << "3. Ejercicio 21 (Evaluar si vector es Partidario)\n";
+        cout << "4. Ejercicio 39 (Serie del cuadrado de la diferencia)\n";
+        cout << "5. Ejercicio 40 (Bits a decimal)\n";
+        cout << "6. Ejercicio 61 (Decimal a binario)\n";
+        cout << "7. Ejercicio 63 (Decimal a octal)\n";
+        cout << "8. Ejercicio 64 (Formatear numero con puntos de miles)\n";
+        cout << "9. Ejercicio 76 (Triangulo de Pascal en vector 1D)\n";
+        cout << "10. Ejercicio 83 (Filtrar solo numeros pares)\n";
+        cout << "11. Volver al menu de Vectores\n";
+        cout << "Digite opcion: ";
         cout << "\n";
-cin >> ej;
+        cin >> ej;
 
-if (cin.fail()) {
-cin.clear();
-cin.ignore(numeric_limits<streamsize>::max(), '\n');
-ej = 0;
+            if (cin.fail()) {
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            ej = 0;
 }
 
-switch (ej) {
-case 1: { unsigned int num;
+        switch (ej) {
+            case 1: { unsigned int num;
 cout<<"Ingrese un numero entero positivo"<<endl;
 cin>>num;
 
 unsigned int temp=num;
 int cantidad=0;
 do{
-cantidad++;
-temp=temp/10;
+   cantidad++;
+   temp=temp/10;
 } while(temp>0);
 int arr[cantidad];
 temp=num;
 for(int i = cantidad-1; i>=0; i--){
-arr[i]=temp%10;
-temp=temp/10;
+    arr[i]=temp%10;
+    temp=temp/10;
 }
 cout<<"Digitos guardados en el arreglo: "<<endl;
 for (int i = 0; i < cantidad; i++){
-cout<<arr[i]<<" ";
+    cout<<arr[i]<<" ";
 } break; }
 
 
-case 2:  /* Aqui programas Ejercicio 18 */ break;
+            case 2:  /* Aqui programas Ejercicio 18 */ break;
 
 
 
 
-case 3:{
+            case 3:{
 cout<<"\n";
 
-
-int n;
-do {
-cout << "Digite de cuanto quiere el arreglo: ";
+            int n;
+    do {
+    cout << "Digite de cuanto quiere el arreglo (mayor o igual 2): ";
     cout << "\n";
-cin >> n;
-if (cin.fail() || n< 2) {
-cin.clear();
-cin.ignore(numeric_limits<streamsize>::max(), '\n');
-cout << "ERROR: Debe ingresar un numero mayor o igual a 2 para la comparacion ";
+    cin >> n;
+    if (cin.fail() || n< 2) {
+                        cin.clear();
+                        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                        cout << "ERROR: Debe ingresar un numero mayor o igual a 2 para la comparacion ";
                         cout << "\n";
-n= 0;
-}
-} while (n < 2);
+                        n= 0;
+                    }
+                } while (n < 2);
 
 
-int arr[n];
+    int arr[n];
 
 for (int i= 0; i < n; i++) {
-cout << "Digite un numero en el arreglo " << i<< " : ";
+        cout << "Digite un numero en el arreglo " << i<< " : ";
         cout << "\n";
-cin>> arr[i];
+        cin>> arr[i];
 
-while (cin.fail()) {
-cin.clear();
-cin.ignore(numeric_limits<streamsize>::max(), '\n');
-cout<< "ERROR: Digite el numero nuevamente: ";
+        while (cin.fail()) {
+                        cin.clear();
+                        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                        cout<< "ERROR: Digite el numero nuevamente: ";
                         cout << "\n";
-cin>> arr[i];
-}
-}
+                        cin>> arr[i];
+                    }
+    }
 
 
-int menorPar= arr[0];
-int mayorImpar = arr[1];
+    int menorPar= arr[0];
+    int mayorImpar = arr[1];
 
 
-for (int i= 0; i < n;i++) {
-if (i % 2 == 0) {
+    for (int i= 0; i < n;i++) {
+        if (i % 2 == 0) {
 
-if (arr[i]< menorPar) {
-menorPar= arr[i];}
-} else{
+            if (arr[i]< menorPar) {
+                menorPar= arr[i];}
+        } else{
 
-if (arr[i]> mayorImpar) {
-mayorImpar= arr[i];
-}}
-}
+            if (arr[i]> mayorImpar) {
+                mayorImpar= arr[i];
+            }}
+    }
 
-cout<< "El menor arreglo en posiciones pares: "<< menorPar << "\n";
-cout<<"\n";
-cout<< "El mayor arreglo en posiciones impares: "<< mayorImpar << "\n";
-cout<<"\n";
+    cout<< "El menor arreglo en posiciones pares: "<< menorPar << "\n";
+    cout<<"\n";
+    cout<< "El mayor arreglo en posiciones impares: "<< mayorImpar << "\n";
+    cout<<"\n";
 cout<<"\n\n";
-if (menorPar > mayorImpar) {
-cout<< "El arreglo ES PARTIDARIO." << "\n";
-} else {
-cout<< "El arreglo NO ES PARTIDARIO." << "\n";
-}
+    if (menorPar > mayorImpar) {
+        cout<< "El arreglo ES PARTIDARIO." << "\n";
+    } else {
+        cout<< "El arreglo NO ES PARTIDARIO." << "\n";
+    }
 
 
-break;}
-
-
-
-
-case 4:  /* Aqui programas Ejercicio 39 */ break;
-case 5:  /* Aqui programas Ejercicio 40 */ break;
-case 6:  /* Aqui programas Ejercicio 61 */ break;
-case 7:  /* Aqui programas Ejercicio 63 */ break;
-case 8:  /* Aqui programas Ejercicio 64 */ break;
+                break;}
 
 
 
 
-case 9: {   int filas;
+            case 4:  /* Aqui programas Ejercicio 39 */ break;
+            case 5:  /* Aqui programas Ejercicio 40 */ break;
+            case 6:  /* Aqui programas Ejercicio 61 */ break;
+            case 7:  /* Aqui programas Ejercicio 63 */ break;
+            case 8:  /* Aqui programas Ejercicio 64 */ break;
+
+
+
+
+            case 9: {   int filas;
 cout<<"Programa para dibujar el triangulo de Pascal"<<endl;
 cout<<"Ingrese el numero de filas: ";
 cout << "\n";
 cin>>filas;
 int matriz[filas];
 for(int i=0;i<filas;i++){
-matriz[i]=1;
+    matriz[i]=1;
 }
 for(int i=0;i<filas;i++){
-for(int j=0;j<=i;j++){
-cout<<matriz[j]<<" ";
-}
-cout<<endl;
-for(int j=i;j>0;j--){
-matriz[j]=matriz[j]+matriz[j-1];
-}
+    for(int j=0;j<=i;j++){
+        cout<<matriz[j]<<" ";
+    }
+    cout<<endl;
+    for(int j=i;j>0;j--){
+        matriz[j]=matriz[j]+matriz[j-1];
+    }
 } break; }
-case 10: /* Aqui programas Ejercicio 83 */ break;
-case 11: cout << "Volviendo a la opcion anterior...\n"; break;
-default: cout << "Opcion invalida.\n"; break;
-}
-} while (ej != 11);
+            case 10: /* Aqui programas Ejercicio 83 */ break;
+            case 11: cout << "Volviendo a la opcion anterior...\n"; break;
+            default: cout << "Opcion invalida.\n"; break;
+        }
+    } while (ej != 11);
 }
 
 
@@ -555,192 +674,250 @@ default: cout << "Opcion invalida.\n"; break;
 // Subgrupo 1.4: Busqueda, Filtros y Ordenamiento
 
 void subMenu1D_Busqueda() {
-int ej = 0;
-do {
-cout << "\n==== SUBGRUPO 1.4: BUSQUEDA Y ORDENAMIENTO =====\n";
-cout << "1. Ejercicio 19 (Mezcla de dos vectores ordenados)\n";
-cout << "2. Ejercicio 20 (Buscar todas las posiciones de X)\n";
-cout << "3. Ejercicio 34 (Agrupar pares e impares ordenados)\n";
-cout << "4. Ejercicio 35 (Valor maximo en rango)\n";
-cout << "5. Ejercicio 36 (Indice del maximo en rango)\n";
-cout << "6. Ejercicio 37 (Ordenar de mayor a menor)\n";
-cout << "7. Ejercicio 54 y 85 (Busqueda binaria / dicotomica)\n";
-cout << "8. Ejercicio 65 (Insertar numero en indice elegido)\n";
-cout << "9. Ejercicio 70 y 71 (Ordenar y consultar contratos por fecha)\n";
-cout << "10. Ejercicio 75 (Filtrar numeros perfectos)\n";
-cout << "11. Ejercicio 82 (Filtrar numeros primos)\n";
-cout << "12. Ejercicio 94 (Filtrar numeros deficientes)\n";
-cout << "13. Volver al menu de Vectores\n";
-cout << "Digite opcion: ";
+    int ej = 0;
+    do {
+        cout << "\n==== SUBGRUPO 1.4: BUSQUEDA Y ORDENAMIENTO =====\n";
+        cout << "1. Ejercicio 19 (Mezcla de dos vectores ordenados)\n";
+        cout << "2. Ejercicio 20 (Buscar todas las posiciones de X)\n";
+        cout << "3. Ejercicio 34 (Agrupar pares e impares ordenados)\n";
+        cout << "4. Ejercicio 35 (Valor maximo en rango)\n";
+        cout << "5. Ejercicio 36 (Indice del maximo en rango)\n";
+        cout << "6. Ejercicio 37 (Ordenar de mayor a menor)\n";
+        cout << "7. Ejercicio 54 y 85 (Busqueda binaria / dicotomica)\n";
+        cout << "8. Ejercicio 65 (Insertar numero en indice elegido)\n";
+        cout << "9. Ejercicio 70 y 71 (Ordenar y consultar contratos por fecha)\n";
+        cout << "10. Ejercicio 75 (Filtrar numeros perfectos)\n";
+        cout << "11. Ejercicio 82 (Filtrar numeros primos)\n";
+        cout << "12. Ejercicio 94 (Filtrar numeros deficientes)\n";
+        cout << "13. Volver al menu de Vectores\n";
+        cout << "Digite opcion: ";
         cout << "\n";
-cin >> ej;
+        cin >> ej;
 
-if (cin.fail()) {
-cin.clear();
-cin.ignore(numeric_limits<streamsize>::max(), '\n');
-ej = 0;
+            if (cin.fail()) {
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            ej = 0;
 }
 
-switch (ej) {
+        switch (ej) {
 
 
-case 1:{ cout << "\n";
-int valor1, valor2;
+            case 1:{ cout << "\n";
+    int valor1, valor2;
 
-do {
-cout << "Digite el la cantidad que desee: ";
+    do {
+        cout << "Digite el la cantidad que desee: ";
         cout << "\n";
-cin >> valor1;
-if (cin.fail() || valor1 <= 0) {
-cin.clear();
-cin.ignore(numeric_limits<streamsize>::max(), '\n');
-valor1 = 0;
-}
-} while (valor1<= 0);
+        cin >> valor1;
+        if (cin.fail() || valor1 <= 0) {
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            valor1 = 0;
+        }
+    } while (valor1<= 0);
 
-do {
-cout<< "Digite el la cantidad que desee: ";
+    do {
+        cout<< "Digite el la cantidad que desee: ";
         cout << "\n";
-cin>> valor2;
-if (cin.fail() || valor2 <= 0) {
-cin.clear();
-cin.ignore(numeric_limits<streamsize>::max(), '\n');
-valor2 = 0;
-}
-} while (valor2 <= 0);
+        cin>> valor2;
+        if (cin.fail() || valor2 <= 0) {
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            valor2 = 0;
+        }
+    } while (valor2 <= 0);
 
-cout<<"\n";
+    cout<<"\n";
 int n1[valor1], n2[valor2], n3[valor1 + valor2];
 
-for (int i = 0; i < valor1; i++) {
-do {
-cout << "Digite el valor que quiere dentro de " << i << " : " << "\n";
-cin >> n1[i];
-if (cin.fail()) {
-cin.clear();
-cin.ignore(numeric_limits<streamsize>::max(), '\n');
-} else {
-break;
-}
-} while (true);
-}
+    for (int i = 0; i < valor1; i++) {
+        do {
+            cout << "Digite el valor que quiere dentro de " << i << " : " << "\n";
+            cin >> n1[i];
+            if (cin.fail()) {
+                cin.clear();
+                cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            } else {
+                break;
+            }
+        } while (true);
+    }
 
-for (int i = 0; i < valor2; i++) {
-do {
-cout << "Digite el valor que quiere dentro de " << i << " : " << "\n";
-cin >>n2[i];
-if (cin.fail()) {
-cin.clear();
-cin.ignore(numeric_limits<streamsize>::max(), '\n');
-} else {
-break;}
-} while (true);
-}
+    for (int i = 0; i < valor2; i++) {
+        do {
+            cout << "Digite el valor que quiere dentro de " << i << " : " << "\n";
+            cin >>n2[i];
+            if (cin.fail()) {
+                cin.clear();
+                cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            } else {
+                break;}
+        } while (true);
+    }
 
-for (int i = 0; i < valor1; i++) {
-n3[i] = n1[i];
-}
-for (int i = 0; i< valor2; i++) {
-n3[valor1 + i]= n2[i];
-}
+    for (int i = 0; i < valor1; i++) {
+        n3[i] = n1[i];
+    }
+    for (int i = 0; i< valor2; i++) {
+        n3[valor1 + i]= n2[i];
+    }
 
 int total = 0;
 total = valor1 +valor2;
 
-for (int i = 0; i< total - 1; i++) {
-for (int j = 0; j< total - i - 1; j++) {
-if (n3[j] > n3[j + 1]) {
-int aux = n3[j];
-n3[j]= n3[j + 1];
-n3[j+ 1] = aux;
-}
-}
-}
+    for (int i = 0; i< total - 1; i++) {
+        for (int j = 0; j< total - i - 1; j++) {
+            if (n3[j] > n3[j + 1]) {
+                int aux = n3[j];
+                n3[j]= n3[j + 1];
+                n3[j+ 1] = aux;
+        }
+    }
+    }
 
-cout << "Valores ordenados\n";
-for (int i = 0; i < total; i++) {
-cout << n3[i] << " ";
-}
+    cout << "Valores ordenados\n";
+    for (int i = 0; i < total; i++) {
+        cout << n3[i] << " ";
+    }
 
-cout << "\n";
-
-
-break;}
+    cout << "\n";
 
 
+            break;}
 
-case 2:{
-cout << "\n";
-int n;
 
-do {
-cout<< "Digite cuantos elementos en el arreglo quiere: ";
+
+            case 2:{
+                cout << "\n";
+                int n;
+
+                do {
+                    cout<< "Digite cuantos elementos en el arreglo quiere: ";
                     cout << "\n";
-cin>> n;
+                    cin>> n;
 
 
-if (cin.fail() || n<= 0 ){
-cin.clear();
-cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                if (cin.fail() || n<= 0 ){
+                   cin.clear();
+                   cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
-cout << "ERROR: Debe digitar un numero entero mayor a 0 \n";
-n =0;
-
-
-}
-}while (n<=0);
-
-int arr[n];
+                   cout << "ERROR: Debe digitar un numero entero mayor a 0 \n";
+                   n =0;
 
 
-for(int i = 0; i< n; i++ ){
+                }
+                }while (n<=0);
 
-cout<< "Digite un numero en la posicion "<< i+1 << " : ";
+                int arr[n];
+
+
+                for(int i = 0; i< n; i++ ){
+
+                    cout<< "Digite un numero en la posicion "<< i+1 << " : ";
                     cout << "\n";
-cin>> arr[i];
-while (cin.fail()){
-cin.clear();
-cin.ignore(numeric_limits<streamsize>::max(), '\n');
-cout << "ERROR: Digite un numero entero: ";
+                    cin>> arr[i];
+                    while (cin.fail()){
+                        cin.clear();
+                         cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                        cout << "ERROR: Digite un numero entero: ";
                         cout << "\n";
-cin >> arr[i];
+                        cin >> arr[i];
 
-}
-}
+                    }
+                }
 cout<< "\n";
-int x;
+                int x;
 
 
-cout<< "Digite un numero positivo que desea buscar en el arreglo: ";
+                cout<< "Digite un numero positivo que desea buscar en el arreglo: ";
                 cout << "\n";
-cin>> x;
-while (cin.fail()) {
-cin.clear();
-cin.ignore(numeric_limits<streamsize>::max(), '\n');
-cout<< "ERROR: Digite un numero entero: ";
+                cin>> x;
+                while (cin.fail()) {
+                    cin.clear();
+                    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                    cout<< "ERROR: Digite un numero entero: ";
                     cout << "\n";
-cin>> x;
-}
+                    cin>> x;
+                }
 cout<< "\n";
-bool encon= false;
-cout << "El numero "<< x<< " se encuentra en la posicion: ";
+                bool encon= false;
+                cout << "El numero "<< x<< " se encuentra en la posicion: ";
                 cout << "\n";
-for (int i= 0; i< n; i++) {
-if (arr[i] == x) {
-cout << (i + 1) << " ";
-encon = true;
+                for (int i= 0; i< n; i++) {
+                    if (arr[i] == x) {
+                        cout << (i + 1) << " ";
+                        encon = true;
+                    }
+                }
+
+                if (encon== false) {
+                    cout << "(No se encontro algun numero en los arreglos";
+                }
+                cout <<"\n";
+
+
+
+
+                break;}
+
+
+
+
+
+
+
+            case 3: {
+    int v[100];
+    int i, j, aux;
+
+    srand(time(0));
+
+    cout<< "\n";
+
+    cout<< "Vector original de 100 numeros aleatorios: \n";
+    for (i = 0; i < 100; i++) {
+        v[i] = (rand() % 1000) + 1;
+        cout<< v[i] << " ";
+        if ((i + 1) % 10 == 0) {
+            cout<< "\n";
+        }
+    }
+
+    for (i= 0; i< 100 - 1; i++) {
+        for (j = 0; j< 100- 1- i; j++) {
+            bool intercambiar= false;
+
+            if (v[j] % 2 != 0 && v[j + 1] % 2 == 0) {
+                intercambiar = true;
+            }
+            else if ((v[j] % 2 == 0 && v[j + 1] % 2 == 0) || (v[j] % 2 != 0 && v[j + 1] % 2 != 0)) {
+                if (v[j] > v[j + 1]) {
+                    intercambiar = true;
+                }
+            }
+
+            if (intercambiar) {
+                aux = v[j];
+                v[j] = v[j + 1];
+                v[j + 1] = aux;
+                }
+                }
+    }
+
+    cout<< "\n";
+    cout<< "2. Vector clasificado: \n";
+
+    for (i = 0; i < 100; i++) {
+        cout<< v[i] << " ";
+        if ((i + 1) % 10 == 0) {
+            cout<< "\n";
+            }
+    }
+    cout << "\n";
+
+    break;
 }
-}
-
-if (encon== false) {
-cout << "(No se encontro algun numero en los arreglos";
-}
-cout <<"\n";
-
-
-
-
-break;}
 
 
 
@@ -748,298 +925,302 @@ break;}
 
 
 
-case 3:  /* Aqui programas Ejercicio 34 */ break;
-case 4:  /* Aqui programas Ejercicio 35 */ break;
-case 5:  /* Aqui programas Ejercicio 36 */ break;
-case 6:  /* Aqui programas Ejercicio 37 */ break;
-case 7:  /* Aqui programas Ejercicio 54/85 */ break;
-case 8:  /* Aqui programas Ejercicio 65 */ break;
-case 9:  /* Aqui programas Ejercicio 70/71 */ break;
-case 10: /* Aqui programas Ejercicio 75 */ break;
-case 11: /* Aqui programas Ejercicio 82 */ break;
-case 12: /* Aqui programas Ejercicio 94 */ break;
-case 13: cout << "Volviendo a la opcion anterior...\n"; break;
-default: cout << "Opcion invalida.\n"; break;
-}
-} while (ej != 13);
+
+
+
+            case 4:  /* Aqui programas Ejercicio 35 */ break;
+            case 5:  /* Aqui programas Ejercicio 36 */ break;
+            case 6:  /* Aqui programas Ejercicio 37 */ break;
+            case 7:  /* Aqui programas Ejercicio 54/85 */ break;
+            case 8:  /* Aqui programas Ejercicio 65 */ break;
+            case 9:  /* Aqui programas Ejercicio 70/71 */ break;
+            case 10: /* Aqui programas Ejercicio 75 */ break;
+            case 11: /* Aqui programas Ejercicio 82 */ break;
+            case 12: /* Aqui programas Ejercicio 94 */ break;
+            case 13: cout << "Volviendo a la opcion anterior...\n"; break;
+            default: cout << "Opcion invalida.\n"; break;
+        }
+    } while (ej != 13);
 }
 // Subgrupo 1.5: Simulacion Real
 
 void subMenu1D_Simulacion() {
-int ej = 0;
-do {
-cout << "\n==== SUBGRUPO 1.5: GESTION REAL ====\n";
-cout << "1. Ejercicio 1  (Cobro de parqueadero)\n";
-cout << "2. Ejercicio 3  (Letra oficial de DNI)\n";
-cout << "3. Ejercicio 5  (Consulta de paises por posicion)\n";
-cout << "4. Ejercicio 12 y 16 (Calificador de examen opcion multiple)\n";
-cout << "5. Ejercicio 41 y 42 (Rotacion de angulos 90, 180, 270)\n";
-cout << "6. Ejercicio 66 (Reservas fumadores en avion)\n";
-cout << "7. Ejercicio 69 (Coordenadas de poligono de N lados)\n";
-cout << "8. Ejercicio 73 (Tiempos competencia de natacion)\n";
-cout << "9. Ejercicio 79 (Control peso corderos frigorifico)\n";
-cout << "10. Ejercicio 80 (Multas de transito por cuadrante)\n";
-cout << "11. Ejercicio 81 (Simulador de Baloto)\n";
-cout << "12. Ejercicio 88 (Marcas de atletas ordenadas)\n";
-cout << "13. Volver al menu de Vectores\n";
-cout << "Digite opcion: ";
+    int ej = 0;
+    do {
+        cout << "\n==== SUBGRUPO 1.5: GESTION REAL ====\n";
+        cout << "1. Ejercicio 1  (Cobro de parqueadero)\n";
+        cout << "2. Ejercicio 3  (Letra oficial de DNI)\n";
+        cout << "3. Ejercicio 5  (Consulta de paises por posicion)\n";
+        cout << "4. Ejercicio 12 y 16 (Calificador de examen opcion multiple)\n";
+        cout << "5. Ejercicio 41 y 42 (Rotacion de angulos 90, 180, 270)\n";
+        cout << "6. Ejercicio 66 (Reservas fumadores en avion)\n";
+        cout << "7. Ejercicio 69 (Coordenadas de poligono de N lados)\n";
+        cout << "8. Ejercicio 73 (Tiempos competencia de natacion)\n";
+        cout << "9. Ejercicio 79 (Control peso corderos frigorifico)\n";
+        cout << "10. Ejercicio 80 (Multas de transito por cuadrante)\n";
+        cout << "11. Ejercicio 81 (Simulador de Baloto)\n";
+        cout << "12. Ejercicio 88 (Marcas de atletas ordenadas)\n";
+        cout << "13. Volver al menu de Vectores\n";
+        cout << "Digite opcion: ";
         cout << "\n";
-cin >> ej;
+        cin >> ej;
+
+            if (cin.fail()) {
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            ej = 0;
+}
+
+        switch (ej) {
+            case 1:  {
+    int capacidadCoches [500];
+    int opcion, posicion, horaLLegada, horaSalida, totalHoras, totalPagar;
+
+    for (int i = 0; i < 500; i++) {
+        capacidadCoches[i] = -1;
+    }
+
+    this_thread::sleep_for(chrono::seconds(4));
+    cout << "Bienvenido al sistema del Parqueadero" << endl;
+
+    do {
+
+
+    cout << "\n";
+    this_thread::sleep_for(chrono::seconds(2));
+    cout<<"Seleccione una opcion"<< endl;
+    cout << "\n";
+    this_thread::sleep_for(chrono::seconds(1));
+    cout<<"1) Ingresar coche"<<endl;
+    cout << "\n";
+    cout<<"2) Retirar coche"<<endl;
+    cout << "\n";
+    cout<<"3) Atras"<<endl;
+    cout << "\n";
+     cin >> opcion;
 
 if (cin.fail()) {
-cin.clear();
-cin.ignore(numeric_limits<streamsize>::max(), '\n');
-ej = 0;
+    cin.clear();
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
 }
-
-switch (ej) {
-case 1:  {
-int capacidadCoches [500];
-int opcion, posicion, horaLLegada, horaSalida, totalHoras, totalPagar;
-
-for (int i = 0; i < 500; i++) {
-capacidadCoches[i] = -1;
-}
-
-this_thread::sleep_for(chrono::seconds(4));
-cout << "Bienvenido al sistema del Parqueadero" << endl;
-
-do {
+    cout << "\n";
 
 
-cout << "\n";
-this_thread::sleep_for(chrono::seconds(2));
-cout<<"Seleccione una opción"<< endl;
-cout << "\n";
-this_thread::sleep_for(chrono::seconds(1));
-cout<<"1) Ingresar coche"<<endl;
-cout << "\n";
-cout<<"2) Retirar coche"<<endl;
-cout << "\n";
-cout<<"3) Atrás"<<endl;
-cout << "\n";
-cin >> opcion;
-
-if (cin.fail()) {
-cin.clear();
-cin.ignore(numeric_limits<streamsize>::max(), '\n');
-}
-cout << "\n";
-
-
-switch (opcion)
+   switch (opcion)
 {
-case 1:
+    case 1:
 
-cout << "////INGRESO DE VEHICULO////" << endl;
-cout << "\n";
+        cout << "////INGRESO DE VEHICULO////" << endl;
+        cout << "\n";
 
-this_thread::sleep_for(chrono::seconds(2));
+        this_thread::sleep_for(chrono::seconds(2));
 
-cout << "Ingrese la posición del coche: " << endl;
-cout << "\n";
-cout << "del 0 al 499" << endl;
-cout << "\n";
+        cout << "Ingrese la posicion del coche: " << endl;
+        cout << "\n";
+        cout << "del 0 al 499" << endl;
+        cout << "\n";
 
-cin >> posicion;
+        cin >> posicion;
 
-while (cin.fail()) {
-cin.clear();
-cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        while (cin.fail()) {
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
-cout << "\n";
-cout << "Ingrese la posición del coche: " << endl;
-cout << "\n";
-cout << "del 0 al 499" << endl;
-cout << "\n";
+            cout << "\n";
+            cout << "Ingrese la posicion del coche: " << endl;
+            cout << "\n";
+            cout << "del 0 al 499" << endl;
+            cout << "\n";
 
-cin >> posicion;
-}
+            cin >> posicion;
+        }
 
-cout << "\n";
-this_thread::sleep_for(chrono::seconds(1));
+        cout << "\n";
+        this_thread::sleep_for(chrono::seconds(1));
 
-if (posicion >= 0 && posicion <= 499) {
+        if (posicion >= 0 && posicion <= 499) {
 
-if (capacidadCoches[posicion] == -1) {
+            if (capacidadCoches[posicion] == -1) {
 
-cout << "Ingrese la hora de llegada: " << endl;
-cout << "\n";
-cout << "0 hasta 23 hora" << endl;
-cout << "\n";
+                cout << "Ingrese la hora de llegada: " << endl;
+                cout << "\n";
+                cout << "0 hasta 23 hora" << endl;
+                cout << "\n";
 
-cin >> horaLLegada;
+                cin >> horaLLegada;
 
-while (cin.fail()) {
-cin.clear();
-cin.ignore(numeric_limits<streamsize>::max(), '\n');
-cout << "\n";
-cout << "Ingrese la hora de llegada: " << endl;
-cout << "\n";
-cout << "0 hasta 23 hora" << endl;
-cout << "\n";
+                while (cin.fail()) {
+                    cin.clear();
+                    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                cout << "\n";
+                cout << "Ingrese la hora de llegada: " << endl;
+                cout << "\n";
+                cout << "0 hasta 23 hora" << endl;
+                cout << "\n";
 
-cin >> horaLLegada;
-}
+                cin >> horaLLegada;
+                }
 
-cout << "\n";
-this_thread::sleep_for(chrono::seconds(1));
+                cout << "\n";
+                this_thread::sleep_for(chrono::seconds(1));
 
-if (horaLLegada >= 0 && horaLLegada <= 23) {
+                if (horaLLegada >= 0 && horaLLegada <= 23) {
 
-capacidadCoches[posicion] = horaLLegada;
+                    capacidadCoches[posicion] = horaLLegada;
 
-this_thread::sleep_for(chrono::seconds(3));
+                    this_thread::sleep_for(chrono::seconds(3));
 
-cout << "Vehiculo registrado exitosamente" << endl;
-cout << "\n";
+                    cout << "Vehiculo registrado exitosamente" << endl;
+                    cout << "\n";
 
-} else {
+                } else {
 
-this_thread::sleep_for(chrono::seconds(3));
+                    this_thread::sleep_for(chrono::seconds(3));
 
-cout << "La hora digitada no esta dentro del limite" << endl;
-cout << "\n";
-}
+                    cout << "La hora digitada no esta dentro del limite" << endl;
+                    cout << "\n";
+                }
 
-} else {
+            } else {
 
-this_thread::sleep_for(chrono::seconds(3));
+                this_thread::sleep_for(chrono::seconds(3));
 
-cout << "\n";
-cout << "La posición esta ocupada" << endl;
-cout << "\n";
-}
+                cout << "\n";
+                cout << "La posicion esta ocupada" << endl;
+                cout << "\n";
+            }
 
-} else {
+        } else {
 
-this_thread::sleep_for(chrono::seconds(3));
+            this_thread::sleep_for(chrono::seconds(3));
 
-cout << "la posición es inválida" << endl;
-cout << "\n";
-}
+            cout << "la posición es invalida" << endl;
+            cout << "\n";
+        }
 
-break;
-case 2:
-cout<<"////RETIRO DE VEHICULO////"<<endl;
-cout<<"\n";
-this_thread::sleep_for(chrono::seconds(2));
-cout << "Ingrese la posición del coche: "<<endl;
-cout << "\n";
-cout << "del 0 al 499" << endl;
-cout << "\n";
-cin >> posicion;
+        break;
+        case 2:
+             cout<<"////RETIRO DE VEHICULO////"<<endl;
+        cout<<"\n";
+        this_thread::sleep_for(chrono::seconds(2));
+        cout << "Ingrese la posición del coche: "<<endl;
+        cout << "\n";
+        cout << "del 0 al 499" << endl;
+        cout << "\n";
+        cin >> posicion;
 
-while (cin.fail()) {
-cin.clear();
-cin.ignore(numeric_limits<streamsize>::max(), '\n');
+          while (cin.fail()) {
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
-cout << "\n";
-cout << "Ingrese la posición del coche: " << endl;
-cout << "\n";
-cout << "del 0 al 499" << endl;
-cout << "\n";
+            cout << "\n";
+            cout << "Ingrese la posicion del coche: " << endl;
+            cout << "\n";
+            cout << "del 0 al 499" << endl;
+            cout << "\n";
 
-cin >> posicion;
-}
-
-
-cout <<"\n";
-if (posicion >= 0 && posicion <= 499) {
-if (capacidadCoches[posicion] != -1) {
-this_thread::sleep_for(chrono::seconds(1));
-cout << "Ingrese la hora de salida: "<<endl;
-cout << "\n";
-cout << "0 hasta 23 hora"<<endl;
-cout<<"\n";
-cin >> horaSalida;
-
-while (cin.fail()) {
-cin.clear();
-cin.ignore(numeric_limits<streamsize>::max(), '\n');
-cout << "\n";
-cout << "Ingrese la hora de llegada: " << endl;
-cout << "\n";
-cout << "0 hasta 23 hora" << endl;
-cout << "\n";
-
-cin >> horaLLegada;
-}
-cout << "\n";
-
-if (horaSalida >=0 && horaSalida <= 23){
-
-horaLLegada=capacidadCoches[posicion];
-this_thread::sleep_for(chrono::seconds(1));
-cout<<"Vehiculo retirado exitosamente"<<endl;
-cout<<"\n";
-
-if (horaSalida >= horaLLegada){
-totalHoras = horaSalida - horaLLegada;
-}else {
-totalHoras = (24 - horaLLegada) + horaSalida;
-}
-
-totalPagar = totalHoras * 3000;
-this_thread::sleep_for(chrono::seconds(3));
-cout<<"Las horas estacionadas del vehículo son: "<<totalHoras<<endl;
-cout<<"\n";
-cout<<"Y su monto a pagar es de: "<<totalPagar<<endl;
-
-capacidadCoches[posicion] = -1;
+            cin >> posicion;
+        }
 
 
-}else {
-this_thread::sleep_for(chrono::seconds(3));
-cout<<"La hora digitada no esta dentro del limite"<<endl;
-cout<<"\n";
-}
+        cout <<"\n";
+            if (posicion >= 0 && posicion <= 499) {
+                if (capacidadCoches[posicion] != -1) {
+                this_thread::sleep_for(chrono::seconds(1));
+                cout << "Ingrese la hora de salida: "<<endl;
+                cout << "\n";
+                cout << "0 hasta 23 hora"<<endl;
+                cout<<"\n";
+                cin >> horaSalida;
+
+                while (cin.fail()) {
+                    cin.clear();
+                    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                cout << "\n";
+                cout << "Ingrese la hora de llegada: " << endl;
+                cout << "\n";
+                cout << "0 hasta 23 hora" << endl;
+                cout << "\n";
+
+                cin >> horaLLegada;
+                }
+                cout << "\n";
+
+                if (horaSalida >=0 && horaSalida <= 23){
+
+                horaLLegada=capacidadCoches[posicion];
+                this_thread::sleep_for(chrono::seconds(1));
+                cout<<"Vehiculo retirado exitosamente"<<endl;
+                cout<<"\n";
+
+                    if (horaSalida >= horaLLegada){
+                        totalHoras = horaSalida - horaLLegada;
+                    }else {
+                        totalHoras = (24 - horaLLegada) + horaSalida;
+                    }
+
+                    totalPagar = totalHoras * 3000;
+                    this_thread::sleep_for(chrono::seconds(3));
+                    cout<<"Las horas estacionadas del vehículo son: "<<totalHoras<<endl;
+                    cout<<"\n";
+                    cout<<"Y su monto a pagar es de: "<<totalPagar<<endl;
+
+                    capacidadCoches[posicion] = -1;
 
 
-} else {
-this_thread::sleep_for(chrono::seconds(3));
-cout<<"\n";
-cout << "La posición no se encuentra ocupada" << endl;
-cout << "\n";
-}
-}   else {
-this_thread::sleep_for(chrono::seconds(3));
-cout << "la posición es inválida" << endl;
-cout << "\n";
+              }else {
+                this_thread::sleep_for(chrono::seconds(3));
+                cout<<"La hora digitada no esta dentro del limite"<<endl;
+                cout<<"\n";
+                }
 
 
-}
-break;
-
-case 3:
-
-cout << "Usted esta saliendo del sistema del parqueadero" << endl;
-cout<<"\n";
-this_thread::sleep_for(chrono::seconds(2));
-break;
-
-default:
-cout<<"\n";
-cout << "La opción digitada es inválida" << endl;
-cout<<"\n";
-break;
-}
-}while(opcion != 3);
-
-cout<<"Usted ha salido del sistema del parqueadero";
-cout<<"\n";
-break;}
+            } else {
+                this_thread::sleep_for(chrono::seconds(3));
+                cout<<"\n";
+                cout << "La posicion no se encuentra ocupada" << endl;
+                cout << "\n";
+            }
+        }   else {
+            this_thread::sleep_for(chrono::seconds(3));
+            cout << "la posicion es inválida" << endl;
+            cout << "\n";
 
 
-case 2:  /* Aqui programas Ejercicio 3 */ break;
+        }
+        break;
+
+        case 3:
+
+            cout << "Usted esta saliendo del sistema del parqueadero" << endl;
+            cout<<"\n";
+            this_thread::sleep_for(chrono::seconds(2));
+            break;
+
+        default:
+        cout<<"\n";
+        cout << "La opcion digitada es invalida" << endl;
+        cout<<"\n";
+        break;
+    }
+     }while(opcion != 3);
+
+     cout<<"Usted ha salido del sistema del parqueadero";
+    cout<<"\n";
+    break;}
 
 
-case 3:  /* Aqui programas Ejercicio 5 */ break;
+            case 2:  /* Aqui programas Ejercicio 3 */ break;
+
+
+            case 3:  /* Aqui programas Ejercicio 5 */ break;
 
 
 
 
-case 4: {  int nP;
+
+
+            case 4: {  int nP;
 cout << "Ingrese el numero de preguntas del examen: ";
 cout << "\n";
 cin >> nP;
@@ -1060,47 +1241,47 @@ aciertos++;
 }
 }
 cout << "El numero de aciertos es: " << aciertos << endl; break; }
-case 5:  {
+            case 5:  {
 
-int posiciones;
-cout << "Programa que almacena nombres de paises en diferentes posiciones y permite ver el dato guardado en la posicion seleccionada" << endl;
-cout << "Ingrese el numero de posiciones que desea ingresar: ";
+    int posiciones;
+    cout << "Programa que almacena nombres de paises en diferentes posiciones y permite ver el dato guardado en la posicion seleccionada" << endl;
+    cout << "Ingrese el numero de posiciones que desea ingresar: ";
     cout << "\n";
-cin >> posiciones;
-string paises[posiciones];
-for(int i = 0; i < posiciones; i++) {
-cout << "Ingrese el nombre del pais en la posicion " << i + 1 << ": ";
+    cin >> posiciones;
+    string paises[posiciones];
+    for(int i = 0; i < posiciones; i++) {
+        cout << "Ingrese el nombre del pais en la posicion " << i + 1 << ": ";
         cout << "\n";
-cin >> paises[i];
-}
+        cin >> paises[i];
+    }
 int j;
 do {
-cout << "Ingrese la posicion del pais que desea ver "<< endl;
-cin >> j;
-if(j > 0 && j <= posiciones) {
-cout << "El pais en la posicion " << j << " es: " << paises[j-1] << endl;
-} else {
-cout << "Posicion invalida" << endl;
-}
-char opcion;
-cout << "Desea ver otra posicion? (s/n): ";
+    cout << "Ingrese la posicion del pais que desea ver "<< endl;
+    cin >> j;
+    if(j > 0 && j <= posiciones) {
+        cout << "El pais en la posicion " << j << " es: " << paises[j-1] << endl;
+    } else {
+        cout << "Posicion invalida" << endl;
+    }
+    char opcion;
+    cout << "Desea ver otra posicion? (s/n): ";
     cout << "\n";
-cin >> opcion;
-if(opcion == 'n' || opcion == 'N') {
-break;
-}
+    cin >> opcion;
+    if(opcion == 'n' || opcion == 'N') {
+        break;
+    }
 } while(true); break; }
-case 6:  /* Aqui programas Ejercicio 66 */ break;
-case 7:  /* Aqui programas Ejercicio 69 */ break;
-case 8:  /* Aqui programas Ejercicio 73 */ break;
-case 9:  /* Aqui programas Ejercicio 79 */ break;
-case 10: /* Aqui programas Ejercicio 80 */ break;
-case 11: /* Aqui programas Ejercicio 81 */ break;
-case 12: /* Aqui programas Ejercicio 88 */ break;
-case 13: cout << "Volviendo a la opcion anterior...\n"; break;
-default: cout << "Opcion invalida.\n"; break;
-}
-} while (ej != 13);
+            case 6:  /* Aqui programas Ejercicio 66 */ break;
+            case 7:  /* Aqui programas Ejercicio 69 */ break;
+            case 8:  /* Aqui programas Ejercicio 73 */ break;
+            case 9:  /* Aqui programas Ejercicio 79 */ break;
+            case 10: /* Aqui programas Ejercicio 80 */ break;
+            case 11: /* Aqui programas Ejercicio 81 */ break;
+            case 12: /* Aqui programas Ejercicio 88 */ break;
+            case 13: cout << "Volviendo a la opcion anterior...\n"; break;
+            default: cout << "Opcion invalida.\n"; break;
+        }
+    } while (ej != 13);
 }
 
 
@@ -1112,35 +1293,35 @@ default: cout << "Opcion invalida.\n"; break;
 // CATEGORIA 2: MATRICES (2D)
 // =========================================================
 void menuMatrices() {
-int opcion2D = 0;
+    int opcion2D = 0;
 
-do {
-cout << "\n============================================\n";
-cout << "========= CATEGORIA 2: MATRICES (2D) =========\n";
-cout << "==============================================\n";
-cout << "1. Operaciones y Algebra de Matrices\n";
-cout << "2. Patrones, Formas y Estructuras Especiales\n";
-cout << "3. Recorridos, Filas, Columnas y Coordenadas\n";
-cout << "4. Modelos de Negocios y Problemas Reales\n";
-cout << "5. Volver al Menu Principal\n";
-cout << "Digite alguna opcion: ";
+    do {
+        cout << "\n============================================\n";
+        cout << "========= CATEGORIA 2: MATRICES (2D) =========\n";
+        cout << "==============================================\n";
+        cout << "1. Operaciones y Algebra de Matrices\n";
+        cout << "2. Patrones, Formas y Estructuras Especiales\n";
+        cout << "3. Recorridos, Filas, Columnas y Coordenadas\n";
+        cout << "4. Modelos de Negocios y Problemas Reales\n";
+        cout << "5. Volver al Menu Principal\n";
+        cout << "Digite alguna opcion: ";
         cout << "\n";
-cin >> opcion2D;
+        cin >> opcion2D;
 
-if (cin.fail()) {
-cin.clear();
-cin.ignore(numeric_limits<streamsize>::max(), '\n');
-opcion2D = 0;
+            if (cin.fail()) {
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            opcion2D = 0;
 }
-switch (opcion2D) {
-case 1: subMenu2D_Algebra(); break;
-case 2: subMenu2D_Patrones(); break;
-case 3: subMenu2D_Recorridos(); break;
-case 4: subMenu2D_Negocios(); break;
-case 5: cout << "\nVolviendo al Menu Principal...\n"; break;
-default: cout << "\nOpcion invalida.\n"; break;
-}
-} while (opcion2D != 5);
+        switch (opcion2D) {
+            case 1: subMenu2D_Algebra(); break;
+            case 2: subMenu2D_Patrones(); break;
+            case 3: subMenu2D_Recorridos(); break;
+            case 4: subMenu2D_Negocios(); break;
+            case 5: cout << "\nVolviendo al Menu Principal...\n"; break;
+            default: cout << "\nOpcion invalida.\n"; break;
+        }
+    } while (opcion2D != 5);
 }
 
 
@@ -1150,97 +1331,97 @@ default: cout << "\nOpcion invalida.\n"; break;
 // Subgrupo 2.1: Algebra
 
 void subMenu2D_Algebra() {
-int ej = 0;
-do {
-cout << "\n==== SUBGRUPO 2.1: OPERACIONES MATRICES =====\n";
-cout << "1. Ejercicio 6  (Dividir matriz 3x4 entre celda [1][1])\n";
-cout << "2. Ejercicio 7  (Matriz transpuesta 3x4 a 4x3)\n";
-cout << "3. Ejercicio 8  (Suma de dos matrices)\n";
-cout << "4. Ejercicio 24 (Suma, resta, transpuesta y traza)\n";
-cout << "5. Ejercicio 91 (Transponer matriz 5x9 a 9x5)\n";
-cout << "6. Volver al menu de Matrices\n";
-cout << "Digite opcion: ";
+    int ej = 0;
+    do {
+        cout << "\n==== SUBGRUPO 2.1: OPERACIONES MATRICES =====\n";
+        cout << "1. Ejercicio 6  (Dividir matriz 3x4 entre celda [1][1])\n";
+        cout << "2. Ejercicio 7  (Matriz transpuesta 3x4 a 4x3)\n";
+        cout << "3. Ejercicio 8  (Suma de dos matrices)\n";
+        cout << "4. Ejercicio 24 (Suma, resta, transpuesta y traza)\n";
+        cout << "5. Ejercicio 91 (Transponer matriz 5x9 a 9x5)\n";
+        cout << "6. Volver al menu de Matrices\n";
+        cout << "Digite opcion: ";
         cout << "\n";
-cin >> ej;
+        cin >> ej;
 
-if (cin.fail()) {
-cin.clear();
-cin.ignore(numeric_limits<streamsize>::max(), '\n');
-ej = 0;
+            if (cin.fail()) {
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            ej = 0;
 }
-switch (ej) {
+        switch (ej) {
 
 
 
 
-case 1: { int M[3][4];
-cout << "Programa que divide cada valor de la matriz entre el valor de la posicion 2,2 de la matriz" << endl;
+            case 1: { int M[3][4];
+    cout << "Programa que divide cada valor de la matriz entre el valor de la posicion 2,2 de la matriz" << endl;
 
-cout << "Matriz original:" << endl;
-for (int i = 0; i < 3; i++) {
-for (int j = 0; j < 4; j++) {
-M[i][j] = rand() % 2001 - 1000;
-cout << M[i][j] << endl;
-}
-cout << endl;
-}
+    cout << "Matriz original:" << endl;
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 4; j++) {
+            M[i][j] = rand() % 2001 - 1000;
+            cout << M[i][j] << endl;
+        }
+        cout << endl;
+    }
 
-int divisor = M[2][2];
-cout << "El divisor (posicion [2][2] o 2,2) es: " << divisor << endl;
+    int divisor = M[2][2];
+    cout << "El divisor (posicion [2][2] o 2,2) es: " << divisor << endl;
 
-cout << "Matriz resultante:" << endl;
-cout.setf(ios::fixed);
-cout.precision(2);
-for (int i = 0; i < 3; i++) {
-for (int j = 0; j < 4; j++) {
-double resultado = static_cast<double>(M[i][j]) / divisor;
-cout << resultado << endl;
-}
-cout << endl;
-}break; }
-
-
+    cout << "Matriz resultante:" << endl;
+    cout.setf(ios::fixed);
+    cout.precision(2);
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 4; j++) {
+            double resultado = static_cast<double>(M[i][j]) / divisor;
+            cout << resultado << endl;
+        }
+        cout << endl;
+    }break; }
 
 
-case 2:{cout<<endl;
-int numeros[3][4];
+
+
+            case 2:{cout<<endl;
+                int numeros[3][4];
 cout<<"Programa que muestra una matriz de 3 filas y 4 columnas ingresada por el usuario y la transpone en otra matriz que invierte filas y columnas"<<endl;
 
-for(int i=0;i<3;i++)
-{
+    for(int i=0;i<3;i++)
+        {
 for(int j=0;j<4;j++)
-{
-cout<<"por favor digite un  numero ["<<i+1<<"]["<<j+1<<"]: ";
+    {
+    cout<<"por favor digite un  numero ["<<i+1<<"]["<<j+1<<"]: ";
     cout << "\n";
-cin>>numeros[i][j];
-}
-}
-cout<<"Matriz ingresada: "<<endl;
-for (int i=0; i<3; i++)
-{
-for (int j=0; j<4; j++)
+    cin>>numeros[i][j];
+    }
+        }
+           cout<<"Matriz ingresada: "<<endl;
+        for (int i=0; i<3; i++)
+        {
+            for (int j=0; j<4; j++)
 {
 cout<<numeros[i][j]<<" ";
 }
 cout<<endl;
-}
-cout<<"Matriz transpuesta: "<<endl;
-for(int j=0; j<4; j++)
-{
-for(int i=0; i<3; i++)
-{
+        }
+         cout<<"Matriz transpuesta: "<<endl;
+        for(int j=0; j<4; j++)
+            {
+        for(int i=0; i<3; i++)
+        {
 
-cout<<numeros[i][j]<<" ";
-}
-cout<<endl;
-}
- break;}
-
-
+        cout<<numeros[i][j]<<" ";
+        }
+        cout<<endl;
+        }
+        } break;
 
 
-case 3: {cout<<endl;
-cout<<"Programa que suma dos matrices bidimensionales ingresadas por el usuario"<<endl;
+
+
+             case 3: {cout<<endl;
+                cout<<"Programa que suma dos matrices bidimensionales ingresadas por el usuario"<<endl;
 int filas, column;
 cout<<"Ingrese la cantidad de filas que tendran sus matrices: "<<endl;
 cin>>filas;
@@ -1249,58 +1430,58 @@ cin>>column;
 int matriz[filas][column];
 for (int i=0; i<filas; i++)
 {
-for(int j=0; j<column; j++)
-{
-cout<<"Ingrese los numeros de la primera matriz en la posicion: ["<< i+1 <<"] ["<<j+1<<"]"<<endl;
-cin>>matriz[i][j];
-}
+    for(int j=0; j<column; j++)
+    {
+    cout<<"Ingrese los numeros de la primera matriz en la posicion: ["<< i+1 <<"] ["<<j+1<<"]"<<endl;
+    cin>>matriz[i][j];
+    }
 }
 cout<<"Primer matriz: "<<endl;
 for (int i=0; i<filas; i++ )
 {
-for(int j=0; j<column; j++)
-{
-cout<<matriz[i][j]<<" ";
-}
-cout<<endl;
+    for(int j=0; j<column; j++)
+    {
+        cout<<matriz[i][j]<<" ";
+    }
+    cout<<endl;
 }
 cout<<endl;
 int matriz2[filas][column];
 for (int i=0; i<filas; i++)
 {
-for(int j=0; j<column; j++)
-{
-cout<<"Ingrese los numeros de la segunda matriz en la posicion: ["<< i+1 <<"] ["<< j+1<<"]"<<endl;
-cin>>matriz2[i][j];
-}
+    for(int j=0; j<column; j++)
+    {
+    cout<<"Ingrese los numeros de la segunda matriz en la posicion: ["<< i+1 <<"] ["<< j+1<<"]"<<endl;
+    cin>>matriz2[i][j];
+    }
 }
 cout<<"Segunda matriz: "<<endl;
 for (int i=0; i<filas; i++ )
 {
-for(int j=0; j<column; j++)
-{
-cout<<matriz2[i][j]<<" ";
-}
-cout<<endl;
+    for(int j=0; j<column; j++)
+    {
+        cout<<matriz2[i][j]<<" ";
+    }
+    cout<<endl;
 }
 int matrizsuma[filas][column];
 for(int i=0; i<filas; i++)
 {
-for(int j=0; j<column; j++)
-{
-matrizsuma[i][j]=matriz2[i][j]+matriz[i][j];
-}
+    for(int j=0; j<column; j++)
+    {
+        matrizsuma[i][j]=matriz2[i][j]+matriz[i][j];
+    }
 }
 cout<<"Matriz resultante de la suma de las matrices en cada posicion: "<<endl;
 for (int i=0; i<filas; i++ )
 {
-for(int j=0; j<column; j++)
-{
-cout<<matrizsuma[i][j]<<" ";
+    for(int j=0; j<column; j++)
+    {
+        cout<<matrizsuma[i][j]<<" ";
+    }
+    cout<<endl;
 }
-cout<<endl;
-}
- break;}
+} break;
 
 
 
@@ -1311,289 +1492,294 @@ cout<<endl;
 
 
 
-case 4: /* Aqui programas Ejercicio 24 */ break;
-case 5: /* Aqui programas Ejercicio 91 */ break;
-case 6: cout << "Volviendo a la opcion anterior...\n"; break;
-default: cout << "Opcion invalida.\n"; break;
-}
-} while (ej != 6);
+            case 4: /* Aqui programas Ejercicio 24 */ break;
+            case 5: /* Aqui programas Ejercicio 91 */ break;
+            case 6: cout << "Volviendo a la opcion anterior...\n"; break;
+            default: cout << "Opcion invalida.\n"; break;
+        }
+    } while (ej != 6);
 }
 // Subgrupo 2.2: Patrones
 
 void subMenu2D_Patrones() {
-int ej = 0;
-do {
-cout << "\n==== SUBGRUPO 2.2: PATRONES Y FORMAS ====\n";
-cout << "1. Ejercicio 4  (Cuadrado Magico)\n";
-cout << "2. Ejercicio 56 (Comprobar matriz Simetrica)\n";
-cout << "3. Ejercicio 57 (Comprobar matriz Antisimetrica)\n";
-cout << "4. Ejercicio 58 (Comprobar matriz Diagonal)\n";
-cout << "5. Ejercicio 59 (Comprobar matriz Triangular Inferior)\n";
-cout << "6. Ejercicio 60 (Comprobar matriz Triangular Superior)\n";
-cout << "7. Ejercicio 89 (Generar matriz Marco 8x6)\n";
-cout << "8. Ejercicio 90 (Generar matriz Identidad 7x7)\n";
-cout << "9. Volver al menu de Matrices\n";
-cout << "Digite opcion: ";
+    int ej = 0;
+    do {
+        cout << "\n==== SUBGRUPO 2.2: PATRONES Y FORMAS ====\n";
+        cout << "1. Ejercicio 4  (Cuadrado Magico)\n";
+        cout << "2. Ejercicio 56 (Comprobar matriz Simetrica)\n";
+        cout << "3. Ejercicio 57 (Comprobar matriz Antisimetrica)\n";
+        cout << "4. Ejercicio 58 (Comprobar matriz Diagonal)\n";
+        cout << "5. Ejercicio 59 (Comprobar matriz Triangular Inferior)\n";
+        cout << "6. Ejercicio 60 (Comprobar matriz Triangular Superior)\n";
+        cout << "7. Ejercicio 89 (Generar matriz Marco 8x6)\n";
+        cout << "8. Ejercicio 90 (Generar matriz Identidad 7x7)\n";
+        cout << "9. Volver al menu de Matrices\n";
+        cout << "Digite opcion: ";
         cout << "\n";
-cin >> ej;
+        cin >> ej;
 
-if (cin.fail()) {
-cin.clear();
-cin.ignore(numeric_limits<streamsize>::max(), '\n');
-ej = 0;
+            if (cin.fail()) {
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            ej = 0;
 }
-switch (ej) {
-case 1: { cout<<"BIENVENIDO AL CUADRADO MAGICO"<<endl;
-cout<<"\n";
+        switch (ej) {
+            case 1: { cout<<"BIENVENIDO AL CUADRADO MAGICO"<<endl;
+    cout<<"\n";
 
-int n;
+    int n;
 
-do {
+    do {
 
-cout<<"Digite el tamaño impar del cuadrado mágico"<<endl;
-cout<<"\n";
-cin>>n;
-cout<<"\n";
-if (cin.fail()) {
-cin.clear();
-cin.ignore(numeric_limits<streamsize>::max(), '\n');
-n = 0;
+    cout<<"Digite la capacidad impar del cuadrado magico"<<endl;
+    cout<<"\n";
+    cin>>n;
+    cout<<"\n";
+    if (cin.fail()) {
+    cin.clear();
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    n = 0;
 }
-} while (n <= 0 || n % 2 == 0);
+    } while (n <= 0 || n % 2 == 0);
 
-int fila = 0;
-int columna = 0;
-int cuadrado [n][n], nuevaFila, nuevaColumna;
-
-
-for (fila = 0; fila < n; fila++){
-for ( columna = 0; columna < n; columna++){
-cuadrado [fila][columna]= 0;
-}
-}
-
-fila = 0;
-columna = n/2;
-
-for (int numero = 1; numero <= n * n; numero++){
-cuadrado [fila][columna] = numero;
-
-nuevaFila = (fila - 1 + n)% n;
-nuevaColumna = (columna + 1 ) % n;
-
-if (cuadrado[nuevaFila][nuevaColumna] != 0){
-
-fila = (fila + 1 ) % n;
-
-}else {
-fila = nuevaFila;
-columna = nuevaColumna;
-}
-}
-
-cout <<"TU CUADRADDO MAGICO ESTA LISTO"<<"\n";
-cout<<"\n";
-
-for (fila = 0; fila < n; fila ++){
-for (columna = 0; columna < n; columna ++){
+    int fila = 0;
+     int columna = 0;
+     int cuadrado [n][n], nuevaFila, nuevaColumna;
 
 
-cout << "|"<<cuadrado[fila][columna]<<"|"<<"\t";
+    for (fila = 0; fila < n; fila++){
+        for ( columna = 0; columna < n; columna++){
+            cuadrado [fila][columna]= 0;
+        }
+    }
 
-}
-cout<<endl;
-cout<<"\n";
+    fila = 0;
+    columna = n/2;
 
-}
-break;}
-case 2: /* Aqui programas Ejercicio 56 */ break;
-case 3: /* Aqui programas Ejercicio 57 */ break;
-case 4: /* Aqui programas Ejercicio 58 */ break;
-case 5: /* Aqui programas Ejercicio 59 */ break;
-case 6: /* Aqui programas Ejercicio 60 */ break;
-case 7: /* Aqui programas Ejercicio 89 */ break;
-case 8:{
-cout << "Programa que genera una matriz identidad de 7x7" << endl;
-int matriz[7][7];
+    for (int numero = 1; numero <= n * n; numero++){
+        cuadrado [fila][columna] = numero;
+
+        nuevaFila = (fila - 1 + n)% n;
+        nuevaColumna = (columna + 1 ) % n;
+
+        if (cuadrado[nuevaFila][nuevaColumna] != 0){
+
+            fila = (fila + 1 ) % n;
+
+        }else {
+            fila = nuevaFila;
+            columna = nuevaColumna;
+        }
+    }
+
+    cout <<"TU CUADRADDO MAGICO ESTA LISTO"<<"\n";
+    cout<<"\n";
+
+    for (fila = 0; fila < n; fila ++){
+        for (columna = 0; columna < n; columna ++){
+
+
+            cout << "|"<<cuadrado[fila][columna]<<"|"<<"\t";
+
+        }
+        cout<<endl;
+        cout<<"\n";
+
+    }
+                break;}
+            case 2: /* Aqui programas Ejercicio 56 */ break;
+            case 3: /* Aqui programas Ejercicio 57 */ break;
+            case 4: /* Aqui programas Ejercicio 58 */ break;
+            case 5: /* Aqui programas Ejercicio 59 */ break;
+            case 6: /* Aqui programas Ejercicio 60 */ break;
+            case 7: /* Aqui programas Ejercicio 89 */ break;
+            case 8:{
+                cout << "Programa que genera una matriz identidad de 7x7" << endl;
+                int matriz[7][7];
 for(int i=0;i<7;i++){
-for(int j=0;j<7;j++){
-if(i==j){
-matriz[i][j]=1;
-} else {
-matriz[i][j]=0;
-}
-}
+    for(int j=0;j<7;j++){
+        if(i==j){
+            matriz[i][j]=1;
+        } else {
+            matriz[i][j]=0;
+        }
+    }
 }
 for(int i=0;i<7;i++){
-for(int j=0;j<7;j++){
-cout<<matriz[i][j]<<" ";
-}
-cout<<endl;
+    for(int j=0;j<7;j++){
+        cout<<matriz[i][j]<<" ";
+    }
+    cout<<endl;
 }
 break; }
-case 9: cout << "Volviendo a la opcion anterior...\n"; break;
-default: cout << "Opcion invalida.\n"; break;
-}
+            case 9: cout << "Volviendo a la opcion anterior...\n"; break;
+            default: cout << "Opcion invalida.\n"; break;
+        }
 
-} while (ej != 9);
+    } while (ej != 9);
 }
 // Subgrupo 2.3: Recorridos
 
 void subMenu2D_Recorridos() {
-int ej = 0;
-do {
-cout << "\n==== SUBGRUPO 2.3: CORDENADAS ====\n";
-cout << "1. Ejercicio 25 (Suma de cada fila a un vector)\n";
-cout << "2. Ejercicio 26 (Coordenadas [f,c] del mayor y menor)\n";
-cout << "3. Ejercicio 38 (Reporte matriz 3x4, promedio y pares)\n";
-cout << "4. Ejercicio 78 (Buscar Punto de Silla)\n";
-cout << "5. Ejercicio 92 (Mayor venta registrada en 5x5)\n";
-cout << "6. Ejercicio 96 (Moda y repeticiones en matriz 5x5)\n";
-cout << "7. Ejercicio 97 (Coordenada del mayor numero primo)\n";
-cout << "8. Ejercicio 99 (Columna de la primera aparicion del mayor)\n";
-cout << "9. Volver al menu de Matrices\n";
-cout << "Digite opcion: ";
+    int ej = 0;
+    do {
+        cout << "\n==== SUBGRUPO 2.3: CORDENADAS ====\n";
+        cout << "1. Ejercicio 25 (Suma de cada fila a un vector)\n";
+        cout << "2. Ejercicio 26 (Coordenadas [f,c] del mayor y menor)\n";
+        cout << "3. Ejercicio 38 (Reporte matriz 3x4, promedio y pares)\n";
+        cout << "4. Ejercicio 78 (Buscar Punto de Silla)\n";
+        cout << "5. Ejercicio 92 (Mayor venta registrada en 5x5)\n";
+        cout << "6. Ejercicio 96 (Moda y repeticiones en matriz 5x5)\n";
+        cout << "7. Ejercicio 97 (Coordenada del mayor numero primo)\n";
+        cout << "8. Ejercicio 99 (Columna de la primera aparicion del mayor)\n";
+        cout << "9. Volver al menu de Matrices\n";
+        cout << "Digite opcion: ";
         cout << "\n";
-cin >> ej;
+        cin >> ej;
 
-if (cin.fail()) {
-cin.clear();
-cin.ignore(numeric_limits<streamsize>::max(), '\n');
-ej = 0;
+            if (cin.fail()) {
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            ej = 0;
 }
-switch (ej) {
-case 1: /* Aqui programas Ejercicio 25 */ break;
-case 2: /* Aqui programas Ejercicio 26 */ break;
-case 3: /* Aqui programas Ejercicio 38 */ break;
-case 4: /* Aqui programas Ejercicio 78 */ break;
-case 5: /* Aqui programas Ejercicio 92 */ break;
-case 6: /* Aqui programas Ejercicio 96 */ break;
-case 7: /* Aqui programas Ejercicio 97 */ break;
-case 8:{
-int matriz[4][4];
-int mayor = 0;
-int columnaMayor = 0;
+        switch (ej) {
+            case 1: /* Aqui programas Ejercicio 25 */ break;
+            case 2: /* Aqui programas Ejercicio 26 */ break;
+            case 3: /* Aqui programas Ejercicio 38 */ break;
+            case 4: /* Aqui programas Ejercicio 78 */ break;
+            case 5: /* Aqui programas Ejercicio 92 */ break;
+            case 6: /* Aqui programas Ejercicio 96 */ break;
+            case 7: /* Aqui programas Ejercicio 97 */ break;
+            case 8:{
+                 int matriz[4][4];
+    int mayor = 0;
+    int columnaMayor = 0;
 
-cout << "Programa que imprime el numero de la columna en donde se digite el numero mas grande de una matriz 4x4" << endl;
+    cout << "Programa que imprime el numero de la columna en donde se digite el numero mas grande de una matriz 4x4" << endl;
 
-for (int i = 0; i < 4; i++) {
-for (int j = 0; j < 4; j++) {
-cout << "Digite el numero de la posicion de la matriz [" << i + 1 << "][" << j + 1 << "]: "<<endl;
-cin >> matriz[i][j];
+    for (int i = 0; i < 4; i++) {
+        for (int j = 0; j < 4; j++) {
+            cout << "Digite el numero de la posicion de la matriz [" << i + 1 << "][" << j + 1 << "]: "<<endl;
+            cin >> matriz[i][j];
 
-if (matriz[i][j] > mayor) {
-mayor = matriz[i][j];
-columnaMayor = j + 1;
-}
-}
-}
+            if (matriz[i][j] > mayor) {
+                mayor = matriz[i][j];
+                columnaMayor = j + 1;
+            }
+        }
+    }
 cout << "Matriz ingresada:" << endl;
-for (int i = 0; i < 4; i++) {
-for (int j = 0; j < 4; j++) {
-cout << matriz[i][j] <<endl;
-}
-cout << endl;
-}
+    for (int i = 0; i < 4; i++) {
+        for (int j = 0; j < 4; j++) {
+            cout << matriz[i][j] <<endl;
+        }
+        cout << endl;
+    }
 
-cout << "El numero mayor es: " << mayor << endl;
-cout << "La columna donde se encuentra el numero mas grande es: " << columnaMayor << endl;
+    cout << "El numero mayor es: " << mayor << endl;
+    cout << "La columna donde se encuentra el numero mas grande es: " << columnaMayor << endl;
 
-break; }
-case 9: cout << "Volviendo a la opcion anterior...\n"; break;
-default: cout << "Opcion invalida.\n"; break;
-}
+                break; }
+            case 9: cout << "Volviendo a la opcion anterior...\n"; break;
+            default: cout << "Opcion invalida.\n"; break;
+        }
 
-} while (ej != 9);
+    } while (ej != 9);
 }
 // Subgrupo 2.4: Negocios
 
 void subMenu2D_Negocios() {
-int ej = 0;
-do {
-cout << "\n==== SUBGRUPO 2.4: MODELOS DE NEGOCIOS ====\n";
-cout << "1. Ejercicio 13 (Ranking de aspectos de restaurante)\n";
-cout << "2. Ejercicio 14 (Produccion de leche hato 7xN)\n";
-cout << "3. Ejercicio 31 (Asientos de avion 25x4)\n";
-cout << "4. Ejercicio 33 (Ingresos 18 vendedores x 10 productos)\n";
-cout << "5. Ejercicio 43 (Costos fabrica de autos)\n";
-cout << "6. Ejercicio 44 (Nutrientes Dieta Cambridge)\n";
-cout << "7. Ejercicio 45 y 46 (Migracion ciudad vs suburbios)\n";
-cout << "8. Ejercicio 47, 48 y 49 (Produccion lubricantes)\n";
-cout << "9. Ejercicio 50 y 51 (Precios cocteles por baldes)\n";
-cout << "10. Ejercicio 68 (Ventas 16 representantes x 5 zonas)\n";
-cout << "11. Ejercicio 74 (Notas 30 alumnos x 6 asignaturas)\n";
-cout << "12. Ejercicio 93 (Kilometros N choferes x 6 dias)\n";
-cout << "13. Volver al menu de Matrices\n";
-cout << "Digite opcion: ";
+    int ej = 0;
+    do {
+        cout << "\n==== SUBGRUPO 2.4: MODELOS DE NEGOCIOS ====\n";
+        cout << "1. Ejercicio 13 (Ranking de aspectos de restaurante)\n";
+        cout << "2. Ejercicio 14 (Produccion de leche hato 7xN)\n";
+        cout << "3. Ejercicio 31 (Asientos de avion 25x4)\n";
+        cout << "4. Ejercicio 33 (Ingresos 18 vendedores x 10 productos)\n";
+        cout << "5. Ejercicio 43 (Costos fabrica de autos)\n";
+        cout << "6. Ejercicio 44 (Nutrientes Dieta Cambridge)\n";
+        cout << "7. Ejercicio 45 y 46 (Migracion ciudad vs suburbios)\n";
+        cout << "8. Ejercicio 47, 48 y 49 (Produccion lubricantes)\n";
+        cout << "9. Ejercicio 50 y 51 (Precios cocteles por baldes)\n";
+        cout << "10. Ejercicio 68 (Ventas 16 representantes x 5 zonas)\n";
+        cout << "11. Ejercicio 74 (Notas 30 alumnos x 6 asignaturas)\n";
+        cout << "12. Ejercicio 93 (Kilometros N choferes x 6 dias)\n";
+        cout << "13. Volver al menu de Matrices\n";
+        cout << "Digite opcion: ";
         cout << "\n";
-cin >> ej;
+        cin >> ej;
 
-if (cin.fail()) {
-cin.clear();
-cin.ignore(numeric_limits<streamsize>::max(), '\n');
-ej = 0;
+            if (cin.fail()) {
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            ej = 0;
 }
 
-switch (ej) {
-case 1:{  cout <<"\n";
-const int client = 5, aspect = 4;
-float A[client][aspect];
-float prom[4], temProm=0;
-string nombres[4] = {"Atencion", "Comida", "Precio", "Ambiente"};
-
-cout << "-Aspectos a evaluar (Calificacion de 1 a 10):\n";
-cout << "  1. Atencion de parte de los empleados\n";
-cout << "  2. Calidad de la comida\n";
-cout << "  3. Justicia del precio\n";
-cout << "  4. Ambiente (musica, decoracion, comodidad)\n";
+        switch (ej) {
 
 
-for (int c = 0; c < client; c++){
-for (int a = 0; a < aspect; a++){
 
-do {
-cout <<"\n";
-cout << "Digite cliente ["<< (c + 1) <<"] su puntuacion del 1 al 10. Aspecto a evaluar ["<< (a + 1) <<"]:";
+            case 1:{  cout <<"\n";
+            const int client = 5, aspect = 4;
+            float A[client][aspect];
+            float prom[4], temProm=0;
+            string nombres[4] = {"Atencion", "Comida", "Precio", "Ambiente"};
+
+    cout << "-Aspectos a evaluar (Calificacion de 1 a 10):\n";
+    cout << "  1. Atencion de parte de los empleados\n";
+    cout << "  2. Calidad de la comida\n";
+    cout << "  3. Justicia del precio\n";
+    cout << "  4. Ambiente (musica, decoracion, comodidad)\n";
+
+
+            for (int c = 0; c < client; c++){
+               for (int a = 0; a < aspect; a++){
+
+                do {
+                cout <<"\n";
+                cout << "Digite cliente ["<< (c + 1) <<"] su puntuacion del 1 al 10. Aspecto a evaluar ["<< (a + 1) <<"]:";
                 cout << "\n";
-cin >>A[c][a];
-if ((A[c][a] < 1) || (A[c][a] > 10)) {
-cout << "Error: La puntuacion debe estar entre 1 y 10. Intentelo de nuevo.\n";
-}
+                    cin >>A[c][a];
+                    if ((A[c][a] < 1) || (A[c][a] > 10)) {
+                cout << "Error: La puntuacion debe estar entre 1 y 10. Intentelo de nuevo.\n";
+            }
 
-} while (A[c][a] < 1 || A[c][a] > 10);
-}
-cout <<"\n";
-}
-for (int a = 0; a < aspect; a++) {
-float sum = 0;
+        } while (A[c][a] < 1 || A[c][a] > 10);
+                }
+                cout <<"\n";
+                }
+            for (int a = 0; a < aspect; a++) {
+            float sum = 0;
 
-for (int c = 0; c < client; c++) {
-sum += A[c][a];
-}
+               for (int c = 0; c < client; c++) {
+                  sum += A[c][a];
+                }
 
-prom[a] = sum / client;
-}
-for (int i = 0; i < aspect - 1; i++) {
-for (int j = 0; j < aspect - 1 - i; j++) {
-if (prom[j] < prom[j + 1]) {
-temProm = prom[j];
+        prom[a] = sum / client;
+                   }
+                for (int i = 0; i < aspect - 1; i++) {
+                    for (int j = 0; j < aspect - 1 - i; j++) {
+                            if (prom[j] < prom[j + 1]) {
+                                temProm = prom[j];
 
-prom[j] = prom[j + 1];
-prom[j + 1] = temProm;
+                                prom[j] = prom[j + 1];
+                                prom[j + 1] = temProm;
 
-string tempNombre = nombres[j];
-nombres[j] = nombres[j + 1];
-nombres[j + 1] = tempNombre;
-}
-}
-}
-for (int a = 0; a < aspect; a++) {
-cout << (a + 1) << ". " << nombres[a]<< "."<< " Promedio: " << prom[a] << "\n";
-}
+                                string tempNombre = nombres[j];
+                                nombres[j] = nombres[j + 1];
+                                nombres[j + 1] = tempNombre;
+                        }
+                    }
+                }
+            for (int a = 0; a < aspect; a++) {
+            cout << (a + 1) << ". " << nombres[a]<< "."<< " Promedio: " << prom[a] << "\n";
+    }
 
-break;}
+            break;}
 
-case 2:  {
+
+
+            case 2:  {
     cout<<"algoritmo que guarda en una matriz de dimensi0n 7xN la produccion de leche diaria (en litros), el total de leche en 7 dias de cada vaca y cual vaca produce mas leche en una semana"<<endl;
 int  column;
 cout<<endl;
@@ -1636,18 +1822,18 @@ vacaMayor=j;
 }
 cout<<"la vaca que mas produce leche es la vaca: "<<vacaMayor+1<<endl;
  break;}
-case 3:  /* Aqui programas Ejercicio 31 */ break;
-case 4:  /* Aqui programas Ejercicio 33 */ break;
-case 5:  /* Aqui programas Ejercicio 43 */ break;
-case 6:  /* Aqui programas Ejercicio 44 */ break;
-case 7:  /* Aqui programas Ejercicio 45,46 */ break;
-case 8:  /* Aqui programas Ejercicio 47,48,49 */ break;
-case 9:  /* Aqui programas Ejercicio 50,51 */ break;
-case 10: /* Aqui programas Ejercicio 68 */ break;
-case 11: /* Aqui programas Ejercicio 74 */ break;
-case 12: /* Aqui programas Ejercicio 93 */ break;
-case 13: cout << "Volviendo a la opcion anterior...\n"; break;
-default: cout << "Opcion invalida.\n"; break;
-}
-} while (ej != 13);
+            case 3:  /* Aqui programas Ejercicio 31 */ break;
+            case 4:  /* Aqui programas Ejercicio 33 */ break;
+            case 5:  /* Aqui programas Ejercicio 43 */ break;
+            case 6:  /* Aqui programas Ejercicio 44 */ break;
+            case 7:  /* Aqui programas Ejercicio 45,46 */ break;
+            case 8:  /* Aqui programas Ejercicio 47,48,49 */ break;
+            case 9:  /* Aqui programas Ejercicio 50,51 */ break;
+            case 10: /* Aqui programas Ejercicio 68 */ break;
+            case 11: /* Aqui programas Ejercicio 74 */ break;
+            case 12: /* Aqui programas Ejercicio 93 */ break;
+            case 13: cout << "Volviendo a la opcion anterior...\n"; break;
+            default: cout << "Opcion invalida.\n"; break;
+        }
+    } while (ej != 13);
 }
