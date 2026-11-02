@@ -154,8 +154,8 @@ void subMenu1D_Texto() {
     string fraseEncriptada=palabra;
     for(size_t i = 0; i < palabra.length(); i++) {
         fraseEncriptada[i] = palabra[i] + 2;
-        cout << "caracter " << i + 1 << " encriptado : " << fraseEncriptada[i] << endl;  
-    } 
+        cout << "caracter " << i + 1 << " encriptado : " << fraseEncriptada[i] << endl;
+    }
     cout << endl << "La frase encriptada es: ";
 for(size_t i = 0; i < palabra.length(); i++) {
         cout << fraseEncriptada[i];
@@ -195,7 +195,7 @@ for(size_t i = 0; i < palabra.length(); i++) {
  break;  }
             case 5:  /* Aqui programas Ejercicio 23 */ break;
             case 6:  /* Aqui programas Ejercicio 29 */ break;
-            case 7:{ 
+            case 7:{
                 cout << "Programa que genera 1000 letras mayusculas y cuenta cuantas veces aparece cada una " << endl;
     char letras[1000];
     srand(time(0));
@@ -394,8 +394,8 @@ cin >> N;
 if (cin.fail())
  {
             cin.clear();
-            cin.ignore(numeric_limits<streamsize>::max(), '\n'); 
-            N = 0; 
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            N = 0;
         }
 }
 while (N <= 0);
@@ -532,13 +532,13 @@ cout<<"\n";
 
             case 6: /* Aqui programas Ejercicio 55 */ break;
             case 7: /* Aqui programas Ejercicio 72 */ break;
-            case 8:{  
+            case 8:{
                 int vector[10];
 int num;
 int contador;
 cout<<"Programa que imprime de entre 10 numeros los que terminen en 3 ingresados por el usuario (enteros diferentes de cero)"<<endl;
 for (int i=0; i<10; i++){
-    do { 
+    do {
     cout<<"Ingrese el numero "<<i+1<<" a evaluar"<<endl;
     cin>>vector[i];
     if (cin.fail()) {
@@ -601,10 +601,10 @@ cin>>num;
 if (cin.fail())
  {
             cin.clear();
-            cin.ignore(numeric_limits<streamsize>::max(), '\n'); 
-            num = 0; 
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            num = 0;
         }
-} 
+}
 while(num <= 0);
 unsigned int temp=num;
 int cantidad=0;
@@ -698,11 +698,70 @@ cout<<"\n\n";
 
 
 
-            case 4:  /* Aqui programas Ejercicio 39 */ break;
+            case 4: {
+    cout<< "\n";
+    int n= 0;
+
+    do {
+        cout<< "Digite la cantidad de elementos dentro del arreglo (minimo 2): ";
+        cin>> n;
+
+        if (cin.fail() || n< 2) {
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cout << "ERROR: Debe ingresar un numero entero mayor o igual a 2\n";
+            n= 0;
+        }
+    } while (n < 2);
+
+    int A[n];
+    int i;
+
+    cout<< "\n";
+    for (i = 0; i < n; i++) {
+        cout<< "Digite el elemento " << (i + 1) << " de la serie: ";
+        cin>> A[i];
+
+        while (cin.fail()) {
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cout << "ERROR: Digite un numero entero valido: ";
+            cin >> A[i];
+        }
+    }
+
+    int v[n - 1];
+
+    for (i = 0; i < n - 1; i++) {
+        v[i] = pow(A[i + 1] - A[i], 2);
+    }
+
+    cout<< "\n";
+    cout<< "//// DIFERENCIAS FINITAS DE LA SERIE ////\n";
+    for (i= 0; i< n - 1; i++) {
+        cout << v[i] << " ";
+    }
+    cout << "\n\n";
+
+    break;
+}
+
+
+
+
+
+
+
+
             case 5:  /* Aqui programas Ejercicio 40 */ break;
             case 6:  /* Aqui programas Ejercicio 61 */ break;
             case 7:  /* Aqui programas Ejercicio 63 */ break;
-            case 8:{  
+
+
+
+
+
+            case 8:{
                 cout << "programa que separa un numero en grupos de 3 digitos con puntos como separadores." << endl;
     long long numero;
     do{
@@ -713,7 +772,7 @@ cout<<"\n\n";
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
             numero = 0;
         }
-    } 
+    }
     while (numero <= 0);
     int digitos[20];
     int cantidad = 0;
@@ -1036,10 +1095,210 @@ cout<< "\n";
 
 
 
+            case 4: {
+    cout<< "\n";
+    int n = 0;
 
-            case 4:  /* Aqui programas Ejercicio 35 */ break;
-            case 5:  /* Aqui programas Ejercicio 36 */ break;
-            case 6:  /* Aqui programas Ejercicio 37 */ break;
+    do {
+        cout<< "Digite la cantidad de datos para el arreglo: ";
+        cin >> n;
+
+        if (cin.fail() || n <= 0) {
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cout<< "ERROR: Debe digitar un numero positivo\n";
+            n = 0;
+        }
+    } while (n<= 0);
+
+    int A[n];
+    int i;
+
+    for (i= 0; i < n; i++) {
+        cout<< "Digite el elemento en la posicion "<< (i + 1)<< ": ";
+        cin>> A[i];
+
+        while (cin.fail()) {
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cout<< "ERROR: Digite un numero entero valido: ";
+            cin>> A[i];
+        }
+    }
+cout<<"\n";
+    int inf= 0;
+    int sup= 0;
+
+    do {
+        cout<< "Digite la posicion inferior del rango (entre 1 y "<< n<< "): ";
+        cin>> inf;
+
+        cout<< "Digite la posicion superior del rango (entre "<< inf<< " y "<< n << "): ";
+        cin>> sup;
+
+        if (cin.fail() || inf< 1 || sup> n || inf> sup) {
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cout<< "ERROR: Rango invalido. Asegurese de que 1 <= inferior Y <= superior Y <= "<< n<< "\n";
+            inf= 0;
+            sup= 0;
+        }
+    } while (inf == 0 || sup== 0);
+
+    int maxRango = A[inf - 1];
+
+    for (i = inf - 1; i<= sup - 1; i++) {
+        if (A[i]> maxRango) {
+            maxRango = A[i];
+        }
+    }
+
+    cout<< "\n";
+    cout<< "VALOR MAXIMO EN EL RANGO :( " << inf << ", " << sup << ") \n";
+    cout<< "El valor maximo dentro del rango es: " << maxRango << "\n";
+    cout<< "\n";
+
+    break;
+}
+
+
+
+
+
+
+            case 5: {
+    cout<< "\n";
+    int n= 0;
+
+    do {
+        cout << "Digite la cantidad de datos para el arreglo: ";
+        cin >> n;
+
+        if (cin.fail() || n <= 0) {
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cout<< "ERROR: Debe digitar un numero positivo\n";
+            n= 0;
+        }
+    } while (n<= 0);
+cout<< "\n";
+    int A[n];
+    int i;
+
+    for (i= 0; i < n; i++) {
+        cout<< "Digite el elemento en la posicion " << (i + 1) << ": ";
+        cin>> A[i];
+
+        while (cin.fail()) {
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cout<< "ERROR: Digite un numero entero valido: ";
+            cin>> A[i];
+        }
+    }
+
+    cout<< "\n";
+    int inf= 0;
+    int sup = 0;
+
+    do {
+        cout<< "Digite la posicion inferior del rango (entre 1 y " << n << "): ";
+        cin>> inf;
+
+        cout<< "Digite la posicion superior del rango (entre " << inf << " y " << n << "): ";
+        cin>> sup;
+
+        if (cin.fail() || inf < 1 || sup > n || inf > sup) {
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cout<< "ERROR: Rango invalido. Asegurese de que 1 <= inferior Y  <= superior Y <= "<< n<< "\n";
+            inf= 0;
+            sup= 0;
+        }
+    } while (inf== 0 || sup == 0);
+
+    int posMax= inf;
+
+    for (i= inf - 1; i <= sup - 1; i++) {
+        if (A[i] > A[posMax - 1]) {
+            posMax = i + 1;
+        }
+    }
+
+    cout<< "\n";
+    cout<< "INDICE DEL VALOR MAXIMO EN EL RANGO (" << inf << ", " << sup << ")\n";
+    cout<< "El valor maximo " << A[posMax - 1] << " se encuentra en la posicion: " << posMax << "\n";
+    cout<< "\n";
+
+    break;
+}
+
+
+
+
+
+
+
+
+            case 6: {
+    cout<< "\n";
+    int n= 0;
+
+    do {
+        cout<< "Digite la cantidad que haya dentro del arreglo: ";
+        cin>> n;
+
+        if (cin.fail() || n<= 0) {
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cout << "ERROR: Debe digitar un numero positivo\n";
+            n = 0;
+        }
+    } while (n <= 0);
+
+    int v[n];
+    int i, j, aux;
+
+    cout << "\n";
+    for (i = 0; i< n; i++) {
+        cout<< "Digite el numero en la posicion " << (i + 1) << ": ";
+        cin>> v[i];
+
+        while (cin.fail()) {
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cout<< "ERROR: Digite un numero entero valido: ";
+            cin>> v[i];
+        }
+    }
+
+    for (i = 0; i< n - 1; i++) {
+        for (j = 0; j< n - 1 - i; j++) {
+            if (v[j] < v[j + 1]) {
+                aux = v[j];
+                v[j] = v[j + 1];
+                v[j + 1] = aux;
+            }
+        }
+    }
+
+    cout << "\n";
+    cout << "//// ARREGLO ORDENADO DE MAYOR A MENOR ////\n";
+    for (i = 0; i < n; i++) {
+        cout << v[i] << " ";
+    }
+    cout << "\n\n";
+
+    break;
+}
+
+
+
+
+
+
+
+
             case 7:  /* Aqui programas Ejercicio 54/85 */ break;
             case 8:  /* Aqui programas Ejercicio 65 */ break;
             case 9:  /* Aqui programas Ejercicio 70/71 */ break;
@@ -1322,17 +1581,17 @@ if (cin.fail()) {
             case 2:  /* Aqui programas Ejercicio 3 */ break;
 
 
-            case 3:{  
+            case 3:{
                     int posiciones;
     cout << "Programa que almacena nombres de paises en diferentes posiciones y permite ver el dato guardado en la posicion seleccionada" << endl;
-    do { 
+    do {
     cout << "Ingrese el numero de posiciones que desea ingresar: ";
     cin >> posiciones;
     if (cin.fail())
  {
             cin.clear();
-            cin.ignore(numeric_limits<streamsize>::max(), '\n'); 
-            posiciones = 0; 
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            posiciones = 0;
         }
     }
     while(posiciones <= 0);
@@ -1365,17 +1624,17 @@ do {
 
 
             case 4: {  int nP;
-    do { 
+    do {
         cout << "Ingrese el numero de preguntas del examen: ";
         cin >> nP;
         if (cin.fail())
  {
             cin.clear();
-            cin.ignore(numeric_limits<streamsize>::max(), '\n'); 
-            nP = 0; 
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            nP = 0;
         }
     } while (nP <= 0);
-    
+
     string calPreguntas[nP];
     for(int i = 0; i < nP; i++){
          do {
@@ -1384,7 +1643,7 @@ do {
               }
      while (calPreguntas[i] != "A" && calPreguntas[i] != "B" && calPreguntas[i] != "C" && calPreguntas[i] != "D" && calPreguntas[i] != "E");
     }
-    
+
     string preguntaCorrecta[nP];
     for(int i = 0; i < nP; i++){
         do {
@@ -1392,14 +1651,14 @@ do {
             cin >> preguntaCorrecta[i];
         } while (preguntaCorrecta[i] != "A" && preguntaCorrecta[i] != "B" && preguntaCorrecta[i] != "C" && preguntaCorrecta[i] != "D" && preguntaCorrecta[i] != "E");
     }
-    
+
     int aciertos = 0;
     for(int i = 0; i < nP; i++){
         if(calPreguntas[i] == preguntaCorrecta[i]){
             aciertos++;
         }
     }
-    
+
     cout << "El numero de aciertos es: " << aciertos << endl; break; }
             case 5:  {
 
