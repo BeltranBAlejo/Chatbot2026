@@ -473,16 +473,15 @@ void ej54_85_BusquedaBinaria(){
         cin >> x;
     }
 
-    int inf= 0;
+    int inf = 0, mitad=0;
     int sup= n - 1;
-    int mitad= 0;
-    bool encontrado= false;
+    int pos= -1;
 
     while (inf<= sup) {
         mitad = inf + (sup - inf) / 2;
 
         if (v[mitad]== x) {
-            encontrado = true;
+            pos = mitad;
             break;
         } else if (v[mitad] < x) {
             inf= mitad + 1;
@@ -492,12 +491,14 @@ void ej54_85_BusquedaBinaria(){
     }
 
     cout << "\n";
-    if (encontrado) {
-        cout<< "RESULTADO: El numero " << x << " fue encontrado en la posicion " << (mitad + 1) << "\n";
+    if (pos != -1) {
+        cout<< "El numero "<< x<< " se encontro en la posicion "<< (pos + 1)<< "\n";
+        cout<< "El numero esta guardado en la casilla "<< pos<< "\n";
     } else {
-        cout<< "RESULTADO: El numero " << x << " no se encuentra en el arreglo\n";
+        cout<< "El numero " << x << " no esta en la lista\n";
+        cout<< "Resultado de busqueda en tabla = "<< pos<< "\n";
     }
-    cout << "\n";
+    cout<< "\n";
 
 }
 
@@ -654,14 +655,14 @@ cout<<"\n";
 
             if (anual[j]< anual[j + 1]) {
                 intercambiar = true;
-            } else if (anual[j] == anual[j + 1]) {
+            }else if (anual[j] == anual[j + 1]) {
                 if (mes[j]< mes[j + 1]) {
                     intercambiar = true;
-                } else if (mes[j] == mes[j + 1]) {
+                }else if (mes[j] == mes[j + 1]) {
                     if (dia[j]< dia[j + 1]) {
                         intercambiar = true;
-                    }
                 }
+            }
             }
 
             if (intercambiar) {
@@ -680,8 +681,8 @@ cout<<"\n";
                 int auxNum = numContrato[j];
                 numContrato[j]= numContrato[j + 1];
                 numContrato[j + 1]= auxNum;
-            }
         }
+    }
     }
 
     cout << "\n LISTADO DE CONTRATOS \n";
@@ -689,6 +690,63 @@ cout<<"\n";
         cout << "Contrato Numero: "<< numContrato[k] << " / Fecha: " << dia[k] << "/" << mes[k] << "/" << anual[k] << "\n";
     }
     cout << "\n";
+
+ //71
+    int opcionSubmenu = 0;
+    cout<< "-DESEA CONSULTAR UNA FECHA? \n";
+    cout<< "1.Si, quiero consultar contratos por fecha \n";
+    cout<< "2.No, quiero finalizar y volver al menu principal\n";
+    cout<< "Digite una opcion: ";
+    cin>> opcionSubmenu;
+
+    while (cin.fail() || (opcionSubmenu != 1 && opcionSubmenu != 2)) {
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        cout<< "ERROR: Digite 1 para consultar o 2 para salir: ";
+        cin>> opcionSubmenu;
+    }
+    if (opcionSubmenu == 1) {
+        int diaBusq= 0, mesBusq= 0, anioBusq= 0;
+
+        cout<< "\n";
+        cout<< "Digite el dia a consultar (1-31): ";
+        cin>> diaBusq;
+        while (cin.fail() || diaBusq < 1 || diaBusq > 31) {
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cout<< "ERROR: Digite un dia valido (1-31): ";
+            cin>> diaBusq;
+        }
+
+        cout<< "Digite el mes a consultar (1-12): ";
+        cin>> mesBusq;
+        while (cin.fail() || mesBusq < 1 || mesBusq > 12) {
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cout<< "ERROR: Digite un mes valido (1-12): ";
+            cin>> mesBusq;
+        }
+
+        cout<< "Digite el anual a consultar: ";
+        cin>> anioBusq;
+        while (cin.fail() || anioBusq < 1900 || anioBusq > 2100) {
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cout<< "ERROR: Digite un anio valido: ";
+            cin>> anioBusq;
+        }
+
+        int contadorContratos = 0;
+        for (int k = 0; k < N; k++) {
+            if (dia[k]== diaBusq && mes[k]== mesBusq && anual[k]== anioBusq) {
+                contadorContratos++;
+            }
+        }
+
+        cout<< "\nResultado: Se realizaron "<< contadorContratos<< " contrato en la fecha "<< diaBusq << "/"<< mesBusq << "/"<< anioBusq<< "\n";
+    } else {
+        cout << "\nVolviendo al menu del chatbot...\n\n";
+    }
 
 }
 
@@ -825,6 +883,59 @@ cout<<"\n";
 
 void ej94_FiltrarNumerosDeficientes(){
 
-    /* Aqui programas Ejercicio 94 */
+    cout<< "\n";
+    int n= 0;
+
+    do {
+        cout<< "Digite la cantidad de numeros para generar: ";
+        cin>> n;
+
+        if (cin.fail() || n <= 0) {
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cout << "ERROR: Debe digitar un numero entero positivo\n";
+            n= 0;
+        }
+    } while (n<= 0);
+
+    int v[n];
+    int deficientes[n];
+    int cantDefi = 0;
+
+srand(time(0));
+    for (int k = 0; k < n; k++) {
+        v[k]= rand() % 500 + 1;
+    }
+
+    for (int k = 0; k < n; k++) {
+        int suma= 0;
+
+        for (int d = 1; d <= v[k] / 2; d++) {
+            if (v[k] % d== 0) {
+                suma += d;
+            }
+        }
+
+        if (suma< v[k]) {
+            deficientes[cantDefi] = v[k];
+            cantDefi++;
+        }
+    }
+
+    cout<< "\nVector original :\n";
+    for (int k = 0; k < n; k++) {
+        cout<< v[k]<< " ";
+    }
+cout<< "\n";
+
+    if (cantDefi > 0) {
+        cout << "Numeros deficientes" << cantDefi << " en total:\n";
+        for (int k = 0; k < cantDefi; k++) {
+            cout<< deficientes[k] << " ";
+        }
+        cout<< "\n\n";
+    }else {
+        cout<< "No se encontraron numeros deficientes en el vector\n\n";
+    }
 
 }
