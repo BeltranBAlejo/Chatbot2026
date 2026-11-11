@@ -131,7 +131,7 @@ if (cin.fail()) {
 
             this_thread::sleep_for(chrono::seconds(3));
 
-            cout << "la posición es invalida" << endl;
+            cout << "la posiciÃ³n es invalida" << endl;
             cout << "\n";
         }
 
@@ -140,7 +140,7 @@ if (cin.fail()) {
              cout<<"////RETIRO DE VEHICULO////"<<endl;
         cout<<"\n";
         this_thread::sleep_for(chrono::seconds(2));
-        cout << "Ingrese la posición del coche: "<<endl;
+        cout << "Ingrese la posiciÃ³n del coche: "<<endl;
         cout << "\n";
         cout << "del 0 al 499" << endl;
         cout << "\n";
@@ -198,7 +198,7 @@ if (cin.fail()) {
 
                     totalPagar = totalHoras * 3000;
                     this_thread::sleep_for(chrono::seconds(3));
-                    cout<<"Las horas estacionadas del vehículo son: "<<totalHoras<<endl;
+                    cout<<"Las horas estacionadas del vehÃ­culo son: "<<totalHoras<<endl;
                     cout<<"\n";
                     cout<<"Y su monto a pagar es de: "<<totalPagar<<endl;
 
@@ -220,7 +220,7 @@ if (cin.fail()) {
             }
         }   else {
             this_thread::sleep_for(chrono::seconds(3));
-            cout << "la posicion es inválida" << endl;
+            cout << "la posicion es invÃ¡lida" << endl;
             cout << "\n";
 
 
@@ -251,7 +251,23 @@ if (cin.fail()) {
 
 void ej03_LetraOficialDNI(){
 
-    /* Aqui programas Ejercicio 3 */
+    long long DNI;
+cout << "Programa para calcular la letra del DNI"<<endl;
+do { 
+cout << "Ingrese su numero de DNI: (positivo mayor a cero) ";
+cin >> DNI;
+  if (cin.fail())
+ {
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n'); 
+            DNI = 0; 
+        }
+}
+while (DNI <= 0);
+char letra[23]={'T','R','W','A','G','M','Y','F','P','D','X','B','N','J','Z','S','Q','V','H','L','C','K','E'};
+int resto = DNI % 23;
+cout << "La letra del DNI es: " << letra[resto] << endl;
+cout << "El DNI completo es: " << DNI << letra[resto] << endl;
 
 }
 
